@@ -1,0 +1,38 @@
+$dark-background: #011827;
+
+html
+{
+    font-size: 16px;
+}
+
+body
+{
+    font-family: "Roboto", sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+.container__header
+{
+    background-color: $dark-background;
+    color: #fff;
+    padding: 1.5em 1.5em 2.2em 1.5em;
+
+    img
+    {
+        width: 9em;
+        float: left;
+
+        padding-right: 0.75rem;
+    }
+    
+    h2
+    {
+        margin: 0;
+
+        line-height: 2rem;
+        font-weight: 700;
+    }
+    
+}
