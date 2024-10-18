@@ -1,3 +1,5 @@
+/* Variables */
+/* Mixins */
 html {
   font-size: 16px;
 }
@@ -5,7 +7,7 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   margin: 0;
   padding: 0;
 }
@@ -28,21 +30,31 @@ body {
   margin: 0;
 }
 
-.main {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
 .main img {
-  grid-column: span 12;
   width: 100%;
 }
 .main .main__challengeBtn {
-  grid-column: 3/11;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  display: flex;
   background-color: #8ACFE5;
-  border-radius: 5px;
+  border: none;
+  border-radius: 4px;
+  color: #011827;
   font-size: 1.5rem;
-  margin-top: 2rem;
-  padding: 1rem;
+  margin: 2rem auto 2rem auto;
+  padding: 1.3rem 3rem;
+}
+.main p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin: 0;
+  text-align: center;
+}
+.main p a {
+  color: #36769D;
 }
 
 /*# sourceMappingURL=style.css.map */

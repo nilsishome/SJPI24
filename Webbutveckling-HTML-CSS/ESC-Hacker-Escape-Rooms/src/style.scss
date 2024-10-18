@@ -7,14 +7,14 @@ html
 
 body
 {
-    @include roboto-regular();
+    @include roboto-regular;
     margin: 0;
     padding: 0;
 }
 
 .header
 {
-    background-color: $dark-background;
+    background-color: $dark-blue;
     color: #fff;
     padding: 1.5em 1.5em 2.2em 1.5em;
 
@@ -27,7 +27,7 @@ body
     
     h2
     {
-        @include roboto-bold();
+        @include roboto-bold;
         line-height: 2rem;
         margin: 0;
     }
@@ -36,25 +36,37 @@ body
 
 .main
 {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-
     img
     {
-        @include grid-span-whole();
         width: 100%;
     }
 
     .main__challengeBtn
     {
-        @include grid-button-center();
+        @include roboto-bold;
+        display: flex;
 
-        background-color: #8ACFE5;
-        border-radius: 5px;
-
+        background-color: $light-blue;
+        border: none;
+        border-radius: 4px;
+        color: $dark-blue;
         font-size: 1.5rem;
 
-        margin-top: 2rem;
-        padding: 1rem;
+        margin: 2rem auto 2rem auto;
+        padding: $challenge-button-padding;
     }
+
+    p
+    {
+        @include roboto-bold;
+        margin: 0;
+        text-align: center;
+
+        a
+        {
+            color: $shaded-blue;
+        }
+    }
+
+    
 }

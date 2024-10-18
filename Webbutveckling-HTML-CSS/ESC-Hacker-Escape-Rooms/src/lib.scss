@@ -1,15 +1,10 @@
-$dark-background: #011827;
+/* Variables */
+$dark-blue: #011827;
+$shaded-blue: #36769D;
+$light-blue: #8ACFE5;
+$challenge-button-padding: 1.3rem 3rem;
 
-@mixin grid-span-whole
-{
-    grid-column: span 12;
-}
-
-@mixin grid-button-center
-{
-    grid-column: 3 / 11;
-}
-
+/* Mixins */
 @mixin roboto-regular
 {
     font-family: "Roboto", sans-serif;
@@ -24,7 +19,7 @@ $dark-background: #011827;
     font-style: normal;
 }
 
-@mixin roboto-regular
+@mixin roboto-italic
 {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
