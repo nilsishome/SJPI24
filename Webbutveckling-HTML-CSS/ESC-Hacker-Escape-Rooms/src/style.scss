@@ -34,14 +34,14 @@ body
     
 }
 
-.main
+.main__first__section
 {
     img
     {
         width: 100%;
     }
 
-    .main__challengeBtn
+    button
     {
         @include roboto-bold;
         display: flex;
@@ -67,6 +67,4 @@ body
             color: $shaded-blue;
         }
     }
-
-    
 }

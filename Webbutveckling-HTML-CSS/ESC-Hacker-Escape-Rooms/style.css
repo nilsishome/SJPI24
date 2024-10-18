@@ -30,10 +30,10 @@ body {
   margin: 0;
 }
 
-.main img {
+.main__first__section img {
   width: 100%;
 }
-.main .main__challengeBtn {
+.main__first__section button {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -46,14 +46,14 @@ body {
   margin: 2rem auto 2rem auto;
   padding: 1.3rem 3rem;
 }
-.main p {
+.main__first__section p {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
   margin: 0;
   text-align: center;
 }
-.main p a {
+.main__first__section p a {
   color: #36769D;
 }
 
