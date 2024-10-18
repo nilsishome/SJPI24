@@ -57,4 +57,27 @@ body {
   color: #36769D;
 }
 
+.main__second__section {
+  display: flex;
+  margin: 4rem 3rem 0 0;
+}
+.main__second__section img {
+  height: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.main__second__section p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.main__second__section p small {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125rem;
+}
+
 /*# sourceMappingURL=style.css.map */

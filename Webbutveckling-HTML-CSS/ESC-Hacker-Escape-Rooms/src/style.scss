@@ -68,3 +68,29 @@ body
         }
     }
 }
+
+.main__second__section
+{
+    display: flex;
+    margin: 4rem 3rem 0 0;
+
+    img
+    {
+        height: 4rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    p
+    {
+        @include roboto-italic;
+        font-size: 1.5rem;
+        margin: 0;
+
+        small
+        {
+            @include roboto-regular;
+            font-size: 1.125rem;
+        }
+    }
+}
