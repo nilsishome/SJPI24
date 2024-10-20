@@ -189,3 +189,35 @@ article
         margin: 3rem auto 0 auto;
     }
 }
+
+section
+{
+    margin-bottom: 2.5rem;
+
+    img
+    {
+        width: 100%;
+    }
+
+    h2
+    {
+        @include roboto-bold;
+        font-size: 2rem;
+        margin: 2rem 1rem;
+    }
+
+    p
+    {
+        font-size: 1.5rem;
+        margin: 2rem 1rem;
+    }
+
+    button
+    {
+        @include button-layout;
+        background-color: $red;
+        color: #fff;
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+}
