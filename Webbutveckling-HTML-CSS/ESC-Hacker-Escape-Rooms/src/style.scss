@@ -64,7 +64,7 @@ header
 }
 
 
-.main__second__section
+.main__first__section
 {
     display: flex;
     margin: 4rem 3rem 0 0;
@@ -90,7 +90,7 @@ header
     }
 }
 
-.main__third__section
+.main__second__section
 {
     h2
     {
@@ -109,7 +109,7 @@ header
         overflow: auto;
         white-space: nowrap;
 
-        .third__section__card
+        .second__section__card
         {
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -157,7 +157,7 @@ header
             }
         }
 
-        .third__section__card:last-child
+        .second__section__card:last-child
         {
             margin-right: 3rem;
         }
