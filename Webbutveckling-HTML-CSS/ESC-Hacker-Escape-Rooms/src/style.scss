@@ -28,6 +28,7 @@ body
     h2
     {
         @include roboto-bold;
+        font-size: 1.5rem;
         line-height: 2rem;
         margin: 0;
     }
@@ -43,7 +44,11 @@ body
 
     button
     {
-        @include on-site-challenge-button;
+        @include button-layout;
+        background-color: $light-blue;
+        color: $dark-blue;
+        display: flex;
+        font-size: 1.5rem;
     }
 
     p
@@ -91,26 +96,70 @@ body
     {
         @include roboto-regular;
         font-size: 2rem;
-        margin-top: 4em;
+        margin: 4em 0 0 0;
         text-align: center;
     }
 
-    .card
+    nav
     {
-        border-radius: 10px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        margin: 2rem auto 2rem auto;
-        width: 20rem;
+        /* This makes the navbar scrollable 
+         * and display: inline-block in the child element
+         * makes the element horizontal
+         */
+        overflow: auto;
+        white-space: nowrap;
 
-        img
+        .third__section__card
         {
-            border-radius: 10px 10px 0 0;
-            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            margin: 3rem -1.4rem 1.2rem 3.2rem;
+            width: 23rem;
+
+            .card__hacker__img
+            {
+                border-radius: 10px 10px 0 0;
+                width: 100%;
+            }
+
+            h2
+            {
+                font-size: 1.75rem;
+                margin: 1rem auto 0 1rem;
+                text-align: start;
+            }
+
+            .card__review
+            {
+                margin: 0 1rem;
+                width: 36%;
+            }
+
+            span
+            {
+                font-size: 0.875rem;
+            }
+
+            p
+            {
+                font-size: 1.125rem;
+                margin: 1rem;
+                white-space: normal;
+            }
+
+            button
+            {
+                @include button-layout;
+                background-color: $red;
+                color: #fff;
+                margin: 0 0 1em 14em;
+            }
         }
 
-        h2
+        .third__section__card:last-child
         {
-            margin: 1rem;
+            margin-right: 3rem;
         }
     }
 }

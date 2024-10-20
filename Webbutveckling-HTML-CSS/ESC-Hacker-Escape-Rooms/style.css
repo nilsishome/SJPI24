@@ -26,6 +26,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
+  font-size: 1.5rem;
   line-height: 2rem;
   margin: 0;
 }
@@ -37,14 +38,14 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
-  display: flex;
-  background-color: #8ACFE5;
   border: none;
   border-radius: 4px;
-  color: #011827;
-  font-size: 1.5rem;
   margin: 2rem auto 2rem auto;
-  padding: 1.3rem 3rem;
+  padding: 1em 2.2em;
+  background-color: #8ACFE5;
+  color: #011827;
+  display: flex;
+  font-size: 1.5rem;
 }
 .main__first__section p {
   font-family: "Roboto", sans-serif;
@@ -85,21 +86,59 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
-  margin-top: 4em;
+  margin: 4em 0 0 0;
   text-align: center;
 }
-.main__third__section .card {
+.main__third__section nav {
+  /* This makes the navbar scrollable 
+   * and display: inline-block in the child element
+   * makes the element horizontal
+   */
+  overflow: auto;
+  white-space: nowrap;
+}
+.main__third__section nav .third__section__card {
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  margin: 2rem auto 2rem auto;
-  width: 20rem;
+  display: inline-block;
+  margin: 3rem -1.4rem 1.2rem 3.2rem;
+  width: 23rem;
 }
-.main__third__section .card img {
+.main__third__section nav .third__section__card .card__hacker__img {
   border-radius: 10px 10px 0 0;
   width: 100%;
 }
-.main__third__section .card h2 {
+.main__third__section nav .third__section__card h2 {
+  font-size: 1.75rem;
+  margin: 1rem auto 0 1rem;
+  text-align: start;
+}
+.main__third__section nav .third__section__card .card__review {
+  margin: 0 1rem;
+  width: 36%;
+}
+.main__third__section nav .third__section__card span {
+  font-size: 0.875rem;
+}
+.main__third__section nav .third__section__card p {
+  font-size: 1.125rem;
   margin: 1rem;
+  white-space: normal;
+}
+.main__third__section nav .third__section__card button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  border: none;
+  border-radius: 4px;
+  margin: 2rem auto 2rem auto;
+  padding: 1em 2.2em;
+  background-color: #E3170A;
+  color: #fff;
+  margin: 0 0 1em 14em;
+}
+.main__third__section nav .third__section__card:last-child {
+  margin-right: 3rem;
 }
 
 /*# sourceMappingURL=style.css.map */
