@@ -43,17 +43,7 @@ body
 
     button
     {
-        @include roboto-bold;
-        display: flex;
-
-        background-color: $light-blue;
-        border: none;
-        border-radius: 4px;
-        color: $dark-blue;
-        font-size: 1.5rem;
-
-        margin: 2rem auto 2rem auto;
-        padding: $challenge-button-padding;
+        @include on-site-challenge-button;
     }
 
     p
@@ -91,6 +81,36 @@ body
         {
             @include roboto-regular;
             font-size: 1.125rem;
+        }
+    }
+}
+
+.main__third__section
+{
+    h2
+    {
+        @include roboto-regular;
+        font-size: 2rem;
+        margin-top: 4em;
+        text-align: center;
+    }
+
+    .card
+    {
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        margin: 2rem auto 2rem auto;
+        width: 20rem;
+
+        img
+        {
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+        }
+
+        h2
+        {
+            margin: 1rem;
         }
     }
 }
