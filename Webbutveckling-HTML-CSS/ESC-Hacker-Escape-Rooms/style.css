@@ -12,17 +12,17 @@ body {
   padding: 0;
 }
 
-.header {
+header {
   background-color: #011827;
   color: #fff;
   padding: 1.5em 1.5em 2.2em 1.5em;
 }
-.header img {
+header img {
   float: left;
   padding-right: 0.75rem;
   width: 9em;
 }
-.header h2 {
+header h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -31,10 +31,11 @@ body {
   margin: 0;
 }
 
-.main__first__section img {
+.main__first__img {
   width: 100%;
 }
-.main__first__section button {
+
+.main__lightblue__button {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -47,14 +48,16 @@ body {
   display: flex;
   font-size: 1.5rem;
 }
-.main__first__section p {
+
+/* This is a <p>-element */
+.main__challenge__link {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
   margin: 0;
   text-align: center;
 }
-.main__first__section p a {
+.main__challenge__link a {
   color: #36769D;
 }
 
@@ -139,6 +142,33 @@ body {
 }
 .main__third__section nav .third__section__card:last-child {
   margin-right: 3rem;
+}
+
+article {
+  background-color: #011827;
+  margin-top: 4rem;
+  padding: 1.5rem 1.5rem 5.5rem 1.5rem;
+}
+article p {
+  color: #fff;
+  font-size: 1.75rem;
+  margin-top: 5rem;
+  text-align: center;
+}
+article button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  border: none;
+  border-radius: 4px;
+  margin: 2rem auto 2rem auto;
+  padding: 1em 2.2em;
+  background-color: #011827;
+  border: 2px solid #8ACFE5;
+  color: #8ACFE5;
+  display: flex;
+  font-size: 1.5rem;
+  margin: 3rem auto 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -12,7 +12,7 @@ body
     padding: 0;
 }
 
-.header
+header
 {
     background-color: $dark-blue;
     color: #fff;
@@ -35,34 +35,34 @@ body
     
 }
 
-.main__first__section
+
+.main__first__img
 {
-    img
-    {
-        width: 100%;
-    }
+    width: 100%;
+}
 
-    button
-    {
-        @include button-layout;
-        background-color: $light-blue;
-        color: $dark-blue;
-        display: flex;
-        font-size: 1.5rem;
-    }
+.main__lightblue__button
+{
+    @include button-layout;
+    background-color: $light-blue;
+    color: $dark-blue;
+    display: flex;
+    font-size: 1.5rem;
+}
 
-    p
-    {
-        @include roboto-bold;
-        margin: 0;
-        text-align: center;
+/* This is a <p>-element */
+.main__challenge__link
+{
+    @include roboto-bold;
+    margin: 0;
+    text-align: center;
 
-        a
-        {
-            color: $shaded-blue;
-        }
+    a
+    {
+        color: $shaded-blue;
     }
 }
+
 
 .main__second__section
 {
@@ -161,5 +161,31 @@ body
         {
             margin-right: 3rem;
         }
+    }
+}
+
+article
+{
+    background-color: $dark-blue;
+    margin-top: 4rem;
+    padding: 1.5rem 1.5rem 5.5rem 1.5rem;
+
+    p
+    {
+        color: #fff;
+        font-size: 1.75rem;
+        margin-top: 5rem;
+        text-align: center;
+    }
+
+    button
+    {
+        @include button-layout;
+        background-color: $dark-blue;
+        border: 2px solid $light-blue;
+        color: $light-blue;
+        display: flex;
+        font-size: 1.5rem;
+        margin: 3rem auto 0 auto;
     }
 }
