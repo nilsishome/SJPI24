@@ -227,11 +227,16 @@ footer
     background-color: $dark-blue;
     color: #fff;
     margin: 0;
-    padding: 3rem;
+    padding: 2rem 1.5rem;
 
     h4
     {
         margin: 2em 0 1em 0;
+    }
+
+    p
+    {
+        font-size: 1.125rem;
     }
 
     ul
@@ -244,6 +249,7 @@ footer
     {
         display: block;
         color: #fff;
+        font-size: 1.125rem;
         padding-bottom: 0.2em;
         text-decoration: none;
     }

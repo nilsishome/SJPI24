@@ -206,10 +206,13 @@ footer {
   background-color: #011827;
   color: #fff;
   margin: 0;
-  padding: 3rem;
+  padding: 2rem 1.5rem;
 }
 footer h4 {
   margin: 2em 0 1em 0;
+}
+footer p {
+  font-size: 1.125rem;
 }
 footer ul {
   list-style-type: none;
@@ -218,6 +221,7 @@ footer ul {
 footer a {
   display: block;
   color: #fff;
+  font-size: 1.125rem;
   padding-bottom: 0.2em;
   text-decoration: none;
 }
