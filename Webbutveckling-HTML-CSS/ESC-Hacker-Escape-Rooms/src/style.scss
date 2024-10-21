@@ -221,3 +221,35 @@ section
         margin-left: 1rem;
     }
 }
+
+footer
+{
+    background-color: $dark-blue;
+    color: #fff;
+    margin: 0;
+    padding: 3rem;
+
+    h4
+    {
+        margin: 2em 0 1em 0;
+    }
+
+    ul
+    {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    a
+    {
+        display: block;
+        color: #fff;
+        padding-bottom: 0.2em;
+        text-decoration: none;
+    }
+
+    a:nth-child(5)
+    {
+        margin-top: 1em;
+    }
+}

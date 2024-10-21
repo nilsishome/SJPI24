@@ -202,4 +202,27 @@ section button {
   margin-left: 1rem;
 }
 
+footer {
+  background-color: #011827;
+  color: #fff;
+  margin: 0;
+  padding: 3rem;
+}
+footer h4 {
+  margin: 2em 0 1em 0;
+}
+footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+footer a {
+  display: block;
+  color: #fff;
+  padding-bottom: 0.2em;
+  text-decoration: none;
+}
+footer a:nth-child(5) {
+  margin-top: 1em;
+}
+
 /*# sourceMappingURL=style.css.map */
