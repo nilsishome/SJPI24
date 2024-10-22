@@ -25,12 +25,13 @@ header
         width: 9em;
     }
     
-    h2
+    h1
     {
         @include roboto-bold;
         font-size: 1.5rem;
         line-height: 2rem;
         margin: 0;
+        width: 18rem;
     }
     
 }
