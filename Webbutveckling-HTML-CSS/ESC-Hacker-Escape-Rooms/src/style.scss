@@ -46,7 +46,7 @@ header
     @include button-layout;
     background-color: $light-blue;
     color: $dark-blue;
-    display: flex;
+    display: block;
     font-size: 1.5rem;
 }
 
@@ -96,7 +96,7 @@ header
     {
         @include roboto-regular;
         font-size: 2rem;
-        margin: 4em 0 0 0;
+        margin: 3em 0 0 0;
         text-align: center;
     }
 
@@ -184,9 +184,9 @@ article
         background-color: $dark-blue;
         border: 2px solid $light-blue;
         color: $light-blue;
-        display: flex;
+        display: block;
         font-size: 1.5rem;
-        margin: 3rem auto 0 auto;
+        margin: 4rem auto 0 auto;
     }
 }
 
@@ -231,6 +231,7 @@ footer
 
     h4
     {
+        font-size: 1.125rem;
         margin: 2em 0 1em 0;
     }
 

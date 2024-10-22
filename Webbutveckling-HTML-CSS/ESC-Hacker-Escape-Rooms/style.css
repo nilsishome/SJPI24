@@ -45,7 +45,7 @@ header h2 {
   padding: 1em 2.2em;
   background-color: #8ACFE5;
   color: #011827;
-  display: flex;
+  display: block;
   font-size: 1.5rem;
 }
 
@@ -89,7 +89,7 @@ header h2 {
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
-  margin: 4em 0 0 0;
+  margin: 3em 0 0 0;
   text-align: center;
 }
 .main__second__section nav {
@@ -166,9 +166,9 @@ article button {
   background-color: #011827;
   border: 2px solid #8ACFE5;
   color: #8ACFE5;
-  display: flex;
+  display: block;
   font-size: 1.5rem;
-  margin: 3rem auto 0 auto;
+  margin: 4rem auto 0 auto;
 }
 
 section {
@@ -209,6 +209,7 @@ footer {
   padding: 2rem 1.5rem;
 }
 footer h4 {
+  font-size: 1.125rem;
   margin: 2em 0 1em 0;
 }
 footer p {
