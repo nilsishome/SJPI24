@@ -41,9 +41,6 @@ header
 
     @include breakpoint($desktop)
     {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(2, 1fr);
         padding: 1.5em 1.5em 0 1.5em;
 
         img
@@ -53,30 +50,36 @@ header
 
         h1
         {
+            display: inline-block;
             font-size: 2.5rem;
-            grid-column: span 5;
             line-height: normal;
             width: auto;
         }
 
         nav
         {
+            display: flex;
+            justify-content: space-evenly;
             padding: 4rem 0 1.5rem 0;
 
             ul
             {
+                @include roboto-bold;
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
 
                 li
                 {
+                    display: inline-block;
                     font-size: 1.5rem;
+                    margin-right: 6rem;
                 }
 
                 li:last-child
                 {
                     color: $light-blue;
+                    margin-right: 0;
                 }
             }
         }
@@ -88,6 +91,12 @@ header
 .main__first_img
 {
     width: 100%;
+
+    @include breakpoint($desktop)
+    {
+        height: 30rem;
+        object-fit: cover;
+    }
 }
 
 .main__lightblue_button
@@ -98,6 +107,11 @@ header
     display: block;
     font-size: 1.5rem;
     margin: 2rem auto;
+
+    @include breakpoint($desktop)
+    {
+        margin: -2rem auto 2rem auto;
+    }
 }
 
 /* This is a <p>-element */
@@ -162,7 +176,7 @@ header
         .second__section_card
         {
             border-radius: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 5px $box-shadow-color;
             display: inline-block;
             margin: 3rem -1.4rem 1.2rem 3.2rem;
             width: 23rem;
