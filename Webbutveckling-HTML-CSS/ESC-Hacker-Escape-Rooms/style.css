@@ -197,13 +197,13 @@ section button {
   background-color: #E3170A;
   color: #fff;
   font-size: 1.5rem;
-  margin-left: 1rem;
+  margin: 2rem 1rem;
 }
 
 footer {
   background-color: #011827;
   color: #fff;
-  margin: 0;
+  margin: 4.5rem 0 0 0;
   padding: 3.5rem 1.5rem;
 }
 footer h4 {
