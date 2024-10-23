@@ -6,6 +6,8 @@ $red: #E3170A;
 
 $button-padding: 1em 2.2em;
 
+$desktop: 1280px;
+
 /* Mixins */
 @mixin button-layout
 {
@@ -15,6 +17,11 @@ $button-padding: 1em 2.2em;
     border-radius: 4px;
 
     padding: $button-padding;
+}
+
+@mixin breakpoint($min-size)
+{
+    @media screen and (min-width: $min-size) { @content; }
 }
 
 @mixin roboto-bold

@@ -31,12 +31,46 @@ header h1 {
   margin: 0;
   width: 18rem;
 }
+header nav {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  header {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1.5em 1.5em 0 1.5em;
+  }
+  header img {
+    float: none;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    grid-column: span 5;
+    line-height: normal;
+    width: auto;
+  }
+  header nav {
+    padding: 4rem 0 1.5rem 0;
+  }
+  header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  header nav ul li {
+    font-size: 1.5rem;
+  }
+  header nav ul li:last-child {
+    color: #8ACFE5;
+  }
+}
 
-.main__first__img {
+.main__first_img {
   width: 100%;
 }
 
-.main__lightblue__button {
+.main__lightblue_button {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -51,41 +85,41 @@ header h1 {
 }
 
 /* This is a <p>-element */
-.main__challenge__link {
+.main__challenge_link {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
   margin: 0;
   text-align: center;
 }
-.main__challenge__link a {
+.main__challenge_link a {
   color: #36769D;
 }
 
-.main__first__section {
+.main__first_section {
   display: flex;
   margin: 5rem 3rem 0 0;
 }
-.main__first__section img {
+.main__first_section img {
   height: 4rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
-.main__first__section p {
+.main__first_section p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: 1.5rem;
   margin: 0;
 }
-.main__first__section p small {
+.main__first_section p small {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.125rem;
 }
 
-.main__second__section h2 {
+.main__second_section h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -93,7 +127,7 @@ header h1 {
   margin: 3em 0 0 0;
   text-align: center;
 }
-.main__second__section nav {
+.main__second_section nav {
   /* This makes the navbar scrollable 
    * and display: inline-block in the child element
    * makes the element horizontal
@@ -101,35 +135,42 @@ header h1 {
   overflow: auto;
   white-space: nowrap;
 }
-.main__second__section nav .second__section__card {
+.main__second_section nav .second__section_card {
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   display: inline-block;
   margin: 3rem -1.4rem 1.2rem 3.2rem;
   width: 23rem;
 }
-.main__second__section nav .second__section__card .card__hacker__img {
+.main__second_section nav .second__section_card .card__hacker_img {
   border-radius: 10px 10px 0 0;
   width: 100%;
 }
-.main__second__section nav .second__section__card h2 {
+.main__second_section nav .second__section_card h2 {
   font-size: 1.75rem;
   margin: 1rem auto 0 1rem;
   text-align: start;
 }
-.main__second__section nav .second__section__card .card__review {
+.main__second_section nav .second__section_card .card__review {
   margin: 0 1rem;
-  width: 36%;
+  width: 32%;
 }
-.main__second__section nav .second__section__card span {
+.main__second_section nav .second__section_card .card__review_participants {
+  margin: 0;
+  position: relative;
+  top: -1.5em;
+  left: 8em;
+}
+.main__second_section nav .second__section_card .card__review_participants small {
   font-size: 0.875rem;
 }
-.main__second__section nav .second__section__card p {
+.main__second_section nav .second__section_card p {
   font-size: 1.125rem;
   margin: 1rem;
+  padding: 0;
   white-space: normal;
 }
-.main__second__section nav .second__section__card button {
+.main__second_section nav .second__section_card button {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -138,9 +179,10 @@ header h1 {
   padding: 1em 2.2em;
   background-color: #E3170A;
   color: #fff;
-  margin: 0 0 1em 14em;
+  display: block;
+  margin: auto 1rem 1rem auto;
 }
-.main__second__section nav .second__section__card:last-child {
+.main__second_section nav .second__section_card:last-child {
   margin-right: 3rem;
 }
 
@@ -210,7 +252,7 @@ footer h4 {
   font-size: 1.125rem;
   margin: 2em 0 0.5em 0;
 }
-footer .footer__first__heading {
+footer .footer__first_heading {
   margin-top: 0;
 }
 footer p {
