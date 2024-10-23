@@ -47,6 +47,7 @@ header h1 {
   color: #011827;
   display: block;
   font-size: 1.5rem;
+  margin: 2rem auto;
 }
 
 /* This is a <p>-element */
@@ -63,7 +64,7 @@ header h1 {
 
 .main__first__section {
   display: flex;
-  margin: 4rem 3rem 0 0;
+  margin: 5rem 3rem 0 0;
 }
 .main__first__section img {
   height: 4rem;
@@ -203,14 +204,18 @@ footer {
   background-color: #011827;
   color: #fff;
   margin: 0;
-  padding: 2rem 1.5rem;
+  padding: 3.5rem 1.5rem;
 }
 footer h4 {
   font-size: 1.125rem;
-  margin: 2em 0 1em 0;
+  margin: 2em 0 0.5em 0;
+}
+footer .footer__first__heading {
+  margin-top: 0;
 }
 footer p {
   font-size: 1.125rem;
+  margin: 0;
 }
 footer ul {
   list-style-type: none;
