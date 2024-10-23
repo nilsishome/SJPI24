@@ -160,6 +160,7 @@ header nav {
   position: relative;
   top: -1.5em;
   left: 8em;
+  width: fit-content;
 }
 .main__second_section nav .second__section_card .card__review_participants small {
   font-size: 0.875rem;
