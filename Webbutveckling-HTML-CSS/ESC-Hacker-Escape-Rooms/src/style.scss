@@ -8,8 +8,20 @@ html
 body
 {
     @include roboto-regular;
+    background-color: $light-blue;
     margin: 0;
     padding: 0;
+}
+
+.container
+{
+    background-color: #fff;
+    max-width: 1280px;
+
+    @include breakpoint($desktop)
+    {
+        margin: auto;
+    }
 }
 
 header
@@ -137,32 +149,8 @@ header
     display: none;
     @include breakpoint($desktop)
     {
-        align-items: center;
-        display: flex;
+        @include desktop-buttons;
         transform: translateY(-2.5rem);
-
-        .main__lightblue_button
-        {
-            display: inherit;
-            margin: 0 24.6% 0 auto;
-        }
-
-        /* This is a <p>-element */
-        .main__challenge_link
-        {
-            display: inherit;
-            margin: 0 auto 0 24.6%;
-
-            a
-            {
-                @include button-layout;
-                background-color: $red;
-                font-size: 1.5rem;
-                color: #fff;
-                text-decoration: none;
-                text-align: center;
-            }
-        }
     }
 }
 
@@ -171,32 +159,8 @@ header
     display: none;
     @include breakpoint($desktop)
     {
-        align-items: center;
-        display: flex;
+        @include desktop-buttons;
         margin-top: 2rem;
-
-        .main__lightblue_button
-        {
-            display: inherit;
-            margin: 0 24.6% 0 auto;
-        }
-
-        /* This is a <p>-element */
-        .main__challenge_link
-        {
-            display: inherit;
-            margin: 0 auto 0 24.6%;
-
-            a
-            {
-                @include button-layout;
-                background-color: $red;
-                font-size: 1.5rem;
-                color: #fff;
-                text-decoration: none;
-                text-align: center;
-            }
-        }
     }
 }
 

@@ -8,8 +8,19 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: #8ACFE5;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  background-color: #fff;
+  max-width: 1280px;
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    margin: auto;
+  }
 }
 
 header {
@@ -125,7 +136,6 @@ header nav {
     align-items: center;
     display: flex;
     transform: translateY(-2.5rem);
-    /* This is a <p>-element */
   }
   .main__first_button_wrap .main__lightblue_button {
     display: inherit;
@@ -158,7 +168,6 @@ header nav {
     align-items: center;
     display: flex;
     margin-top: 2rem;
-    /* This is a <p>-element */
   }
   .main__second_button_wrap .main__lightblue_button {
     display: inherit;

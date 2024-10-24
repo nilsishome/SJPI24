@@ -25,6 +25,34 @@ $desktop: 1280px;
     @media screen and (min-width: $min-size) { @content; }
 }
 
+@mixin desktop-buttons
+{
+    align-items: center;
+    display: flex;
+
+    .main__lightblue_button
+    {
+        display: inherit;
+        margin: 0 24.6% 0 auto;
+    }
+
+    .main__challenge_link
+    {
+        display: inherit;
+        margin: 0 auto 0 24.6%;
+
+        a
+        {
+            @include button-layout;
+            background-color: $red;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+        }
+    }
+}
+
 @mixin roboto-bold
 {
     font-family: "Roboto", sans-serif;
