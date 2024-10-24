@@ -147,6 +147,7 @@ header
 .main__first_button_wrap
 {
     display: none;
+    
     @include breakpoint($desktop)
     {
         @include desktop-buttons;
@@ -157,6 +158,7 @@ header
 .main__second_button_wrap
 {
     display: none;
+
     @include breakpoint($desktop)
     {
         @include desktop-buttons;
@@ -169,23 +171,72 @@ header
     display: flex;
     margin: 5rem 3rem 0 0;
 
-    img
+    .first_section__john_doe
     {
-        height: 4rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        display: inherit;
+
+        img
+        {
+            height: 4rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        p
+        {
+            @include roboto-italic;
+            font-size: 1.5rem;
+            margin: 0;
+
+            small
+            {
+                @include roboto-regular;
+                font-size: 1.125rem;
+            }
+        }
+
+        @include breakpoint($desktop)
+        {
+            margin: auto auto auto 5rem;
+            width: 36rem;
+
+            img
+            {
+                height: 5rem;
+                width: 5rem;
+            }
+        }
     }
 
-    p
+    .first_section__john_doe_the_second
     {
-        @include roboto-italic;
-        font-size: 1.5rem;
-        margin: 0;
+        display: none;
 
-        small
+        @include breakpoint($desktop)
         {
-            @include roboto-regular;
-            font-size: 1.125rem;
+            display: inherit;
+            margin: auto 1rem auto auto;
+            width: 36rem;
+
+            img
+            {
+                height: 5rem;
+                margin-right: 1rem;
+                width: 5rem;
+            }
+
+            p
+            {
+                @include roboto-italic;
+                font-size: 1.5rem;
+                margin: 0;
+
+                small
+                {
+                    @include roboto-regular;
+                    font-size: 1.125rem;
+                }
+            }
         }
     }
 }
@@ -271,6 +322,16 @@ header
         .second__section_card:last-child
         {
             margin-right: 3rem;
+        }
+    }
+
+    @include breakpoint($desktop)
+    {
+        nav
+        {
+            padding-top: 2rem;
+            overflow: visible;
+            white-space: normal;
         }
     }
 }

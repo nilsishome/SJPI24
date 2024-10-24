@@ -196,23 +196,64 @@ header nav {
   display: flex;
   margin: 5rem 3rem 0 0;
 }
-.main__first_section img {
+.main__first_section .first_section__john_doe {
+  display: inherit;
+}
+.main__first_section .first_section__john_doe img {
   height: 4rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
-.main__first_section p {
+.main__first_section .first_section__john_doe p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: 1.5rem;
   margin: 0;
 }
-.main__first_section p small {
+.main__first_section .first_section__john_doe p small {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.125rem;
+}
+@media screen and (min-width: 1280px) {
+  .main__first_section .first_section__john_doe {
+    margin: auto auto auto 5rem;
+    width: 36rem;
+  }
+  .main__first_section .first_section__john_doe img {
+    height: 5rem;
+    width: 5rem;
+  }
+}
+.main__first_section .first_section__john_doe_the_second {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  .main__first_section .first_section__john_doe_the_second {
+    display: inherit;
+    margin: auto 1rem auto auto;
+    width: 36rem;
+  }
+  .main__first_section .first_section__john_doe_the_second img {
+    height: 5rem;
+    margin-right: 1rem;
+    width: 5rem;
+  }
+  .main__first_section .first_section__john_doe_the_second p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .main__first_section .first_section__john_doe_the_second p small {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.125rem;
+  }
 }
 
 .main__second_section h2 {
@@ -281,6 +322,13 @@ header nav {
 }
 .main__second_section nav .second__section_card:last-child {
   margin-right: 3rem;
+}
+@media screen and (min-width: 1280px) {
+  .main__second_section nav {
+    padding-top: 2rem;
+    overflow: visible;
+    white-space: normal;
+  }
 }
 
 article {
