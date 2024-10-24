@@ -110,7 +110,7 @@ header
 
     @include breakpoint($desktop)
     {
-        margin: -2.5rem auto 2rem auto;
+        display: none;
     }
 }
 
@@ -125,8 +125,80 @@ header
     {
         color: $shaded-blue;
     }
+
+    @include breakpoint($desktop)
+    {
+        display: none;
+    }
 }
 
+.main__first_button_wrap
+{
+    display: none;
+    @include breakpoint($desktop)
+    {
+        align-items: center;
+        display: flex;
+        transform: translateY(-2.5rem);
+
+        .main__lightblue_button
+        {
+            display: inherit;
+            margin: 0 24.6% 0 auto;
+        }
+
+        /* This is a <p>-element */
+        .main__challenge_link
+        {
+            display: inherit;
+            margin: 0 auto 0 24.6%;
+
+            a
+            {
+                @include button-layout;
+                background-color: $red;
+                font-size: 1.5rem;
+                color: #fff;
+                text-decoration: none;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.main__second_button_wrap
+{
+    display: none;
+    @include breakpoint($desktop)
+    {
+        align-items: center;
+        display: flex;
+        margin-top: 2rem;
+
+        .main__lightblue_button
+        {
+            display: inherit;
+            margin: 0 24.6% 0 auto;
+        }
+
+        /* This is a <p>-element */
+        .main__challenge_link
+        {
+            display: inherit;
+            margin: 0 auto 0 24.6%;
+
+            a
+            {
+                @include button-layout;
+                background-color: $red;
+                font-size: 1.5rem;
+                color: #fff;
+                text-decoration: none;
+                text-align: center;
+            }
+        }
+    }
+}
 
 .main__first_section
 {
