@@ -385,7 +385,7 @@ article
     button
     {
         @include button-layout;
-        background-color: $dark-blue;
+        background-color: transparent;
         border: 2px solid $light-blue;
         color: $light-blue;
         display: block;
@@ -442,6 +442,11 @@ footer
     {
         font-size: 1.125rem;
         margin: 2em 0 0.5em 0;
+
+        @include breakpoint($desktop)
+        {
+            margin-top: 0;
+        }
     }
 
     .footer__first_heading
@@ -453,12 +458,46 @@ footer
     {
         font-size: 1.125rem;
         margin: 0;
+
+        @include breakpoint($desktop)
+        {
+            width: 26rem;
+        }
     }
 
     ul
     {
         list-style-type: none;
         padding: 0;
+
+        @include breakpoint($desktop)
+        {
+            display: flex;
+        }
+    }
+
+    li:nth-child(1)
+    {
+        @include breakpoint($desktop)
+        {
+            margin-right: 15rem;
+        }
+    }
+
+    li:nth-child(2)
+    {
+        @include breakpoint($desktop)
+        {
+            margin-right: 8rem;
+        }
+    }
+
+    li:last-child
+    {
+        @include breakpoint($desktop)
+        {
+            margin-right: 0;
+        }
     }
 
     a
@@ -473,5 +512,10 @@ footer
     a:nth-child(5)
     {
         margin-top: 1em;
+    }
+
+    @include breakpoint($desktop)
+    {
+        padding: 8rem 6rem 8rem 6rem;
     }
 }
