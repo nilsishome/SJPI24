@@ -35,6 +35,11 @@ header
         float: left;
         padding-right: 0.75rem;
         width: 9em;
+
+        @include breakpoint($desktop)
+        {
+            float: none;
+        }
     }
     
     h1
@@ -44,31 +49,21 @@ header
         line-height: 2rem;
         margin: 0;
         width: 18rem;
-    }
 
-    nav
-    {
-        display: none;
-    }
-
-    @include breakpoint($desktop)
-    {
-        padding: 1.5em 1.5em 0 1.5em;
-
-        img
-        {
-            float: none;
-        }
-
-        h1
+        @include breakpoint($desktop)
         {
             display: inline-block;
             font-size: 2.5rem;
             line-height: normal;
             width: auto;
         }
+    }
 
-        nav
+    nav
+    {
+        display: none;
+
+        @include breakpoint($desktop)
         {
             display: flex;
             justify-content: space-evenly;
@@ -90,11 +85,32 @@ header
 
                 li:last-child
                 {
-                    color: $light-blue;
                     margin-right: 0;
+
+                    a
+                    {
+                        color: $light-blue;
+                    }
                 }
+
+                a
+                {
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                a:visited
+                {
+                    color: #fff;
+                }
+                
             }
         }
+    }
+
+    @include breakpoint($desktop)
+    {
+        padding: 1.5em 1.5em 0 1.5em;
     }
     
 }
@@ -155,17 +171,6 @@ header
     }
 }
 
-.main__second_button_wrap
-{
-    display: none;
-
-    @include breakpoint($desktop)
-    {
-        @include desktop-buttons;
-        margin-top: 2rem;
-    }
-}
-
 .main__first_section
 {
     display: flex;
@@ -180,6 +185,12 @@ header
             height: 4rem;
             margin-left: 1rem;
             margin-right: 1rem;
+
+            @include breakpoint($desktop)
+            {
+                height: 5rem;
+                width: 5rem;
+            }
         }
 
         p
@@ -199,12 +210,6 @@ header
         {
             margin: auto auto auto 5rem;
             width: 36rem;
-
-            img
-            {
-                height: 5rem;
-                width: 5rem;
-            }
         }
     }
 
@@ -249,6 +254,11 @@ header
         font-size: 2rem;
         margin: 3em 0 0 0;
         text-align: center;
+
+        @include breakpoint($desktop)
+        {
+            font-size: 2.25rem;
+        }
     }
 
     nav
@@ -299,6 +309,11 @@ header
                 {
                     font-size: 0.875rem;
                 }
+
+                @include breakpoint($desktop)
+                {
+                    left: 14.5em;
+                }
             }
 
             p
@@ -336,6 +351,17 @@ header
     }
 }
 
+.main__second_button_wrap
+{
+    display: none;
+
+    @include breakpoint($desktop)
+    {
+        @include desktop-buttons;
+        margin-top: 2rem;
+    }
+}
+
 article
 {
     background-color: $dark-blue;
@@ -348,6 +374,12 @@ article
         font-size: 1.75rem;
         margin-top: 5rem;
         text-align: center;
+
+        @include breakpoint($desktop)
+        {
+            margin: 6rem auto 0 auto;
+            width: 38rem;
+        }
     }
 
     button
@@ -359,6 +391,11 @@ article
         display: block;
         font-size: 1.5rem;
         margin: 4rem auto 0 auto;
+
+        @include breakpoint($desktop)
+        {
+            margin: 2.5rem auto 3rem auto;
+        }
     }
 }
 

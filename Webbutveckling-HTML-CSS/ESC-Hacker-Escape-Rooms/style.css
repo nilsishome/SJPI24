@@ -33,6 +33,11 @@ header img {
   padding-right: 0.75rem;
   width: 9em;
 }
+@media screen and (min-width: 1280px) {
+  header img {
+    float: none;
+  }
+}
 header h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -42,22 +47,18 @@ header h1 {
   margin: 0;
   width: 18rem;
 }
-header nav {
-  display: none;
-}
 @media screen and (min-width: 1280px) {
-  header {
-    padding: 1.5em 1.5em 0 1.5em;
-  }
-  header img {
-    float: none;
-  }
   header h1 {
     display: inline-block;
     font-size: 2.5rem;
     line-height: normal;
     width: auto;
   }
+}
+header nav {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
   header nav {
     display: flex;
     justify-content: space-evenly;
@@ -77,8 +78,22 @@ header nav {
     margin-right: 6rem;
   }
   header nav ul li:last-child {
-    color: #8ACFE5;
     margin-right: 0;
+  }
+  header nav ul li:last-child a {
+    color: #8ACFE5;
+  }
+  header nav ul a {
+    color: #fff;
+    text-decoration: none;
+  }
+  header nav ul a:visited {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header {
+    padding: 1.5em 1.5em 0 1.5em;
   }
 }
 
@@ -160,38 +175,6 @@ header nav {
   }
 }
 
-.main__second_button_wrap {
-  display: none;
-}
-@media screen and (min-width: 1280px) {
-  .main__second_button_wrap {
-    align-items: center;
-    display: flex;
-    margin-top: 2rem;
-  }
-  .main__second_button_wrap .main__lightblue_button {
-    display: inherit;
-    margin: 0 24.6% 0 auto;
-  }
-  .main__second_button_wrap .main__challenge_link {
-    display: inherit;
-    margin: 0 auto 0 24.6%;
-  }
-  .main__second_button_wrap .main__challenge_link a {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    border: none;
-    border-radius: 4px;
-    padding: 1em 2.2em;
-    background-color: #E3170A;
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-  }
-}
-
 .main__first_section {
   display: flex;
   margin: 5rem 3rem 0 0;
@@ -203,6 +186,12 @@ header nav {
   height: 4rem;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+@media screen and (min-width: 1280px) {
+  .main__first_section .first_section__john_doe img {
+    height: 5rem;
+    width: 5rem;
+  }
 }
 .main__first_section .first_section__john_doe p {
   font-family: "Roboto", sans-serif;
@@ -221,10 +210,6 @@ header nav {
   .main__first_section .first_section__john_doe {
     margin: auto auto auto 5rem;
     width: 36rem;
-  }
-  .main__first_section .first_section__john_doe img {
-    height: 5rem;
-    width: 5rem;
   }
 }
 .main__first_section .first_section__john_doe_the_second {
@@ -264,6 +249,11 @@ header nav {
   margin: 3em 0 0 0;
   text-align: center;
 }
+@media screen and (min-width: 1280px) {
+  .main__second_section h2 {
+    font-size: 2.25rem;
+  }
+}
 .main__second_section nav {
   /* This makes the navbar scrollable 
    * and display: inline-block in the child element
@@ -302,6 +292,11 @@ header nav {
 .main__second_section nav .second__section_card .card__review_participants small {
   font-size: 0.875rem;
 }
+@media screen and (min-width: 1280px) {
+  .main__second_section nav .second__section_card .card__review_participants {
+    left: 14.5em;
+  }
+}
 .main__second_section nav .second__section_card p {
   font-size: 1.125rem;
   margin: 1rem;
@@ -331,6 +326,38 @@ header nav {
   }
 }
 
+.main__second_button_wrap {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  .main__second_button_wrap {
+    align-items: center;
+    display: flex;
+    margin-top: 2rem;
+  }
+  .main__second_button_wrap .main__lightblue_button {
+    display: inherit;
+    margin: 0 24.6% 0 auto;
+  }
+  .main__second_button_wrap .main__challenge_link {
+    display: inherit;
+    margin: 0 auto 0 24.6%;
+  }
+  .main__second_button_wrap .main__challenge_link a {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    border: none;
+    border-radius: 4px;
+    padding: 1em 2.2em;
+    background-color: #E3170A;
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+  }
+}
+
 article {
   background-color: #011827;
   margin-top: 4rem;
@@ -341,6 +368,12 @@ article p {
   font-size: 1.75rem;
   margin-top: 5rem;
   text-align: center;
+}
+@media screen and (min-width: 1280px) {
+  article p {
+    margin: 6rem auto 0 auto;
+    width: 38rem;
+  }
 }
 article button {
   font-family: "Roboto", sans-serif;
@@ -355,6 +388,11 @@ article button {
   display: block;
   font-size: 1.5rem;
   margin: 4rem auto 0 auto;
+}
+@media screen and (min-width: 1280px) {
+  article button {
+    margin: 2.5rem auto 3rem auto;
+  }
 }
 
 section {
