@@ -7,7 +7,7 @@ $red: #E3170A;
 
 $button-padding: 1em 2.2em;
 
-$desktop: 1280px;
+$desktop: 1000px;
 
 /* Mixins */
 @mixin button-layout
@@ -33,13 +33,13 @@ $desktop: 1280px;
     .main__lightblue_button
     {
         display: inherit;
-        margin: 0 24.6% 0 auto;
+        margin: 0 auto 0 0.5rem;
     }
 
     .main__challenge_link
     {
         display: inherit;
-        margin: 0 auto 0 24.6%;
+        margin: 0 0.5rem 0 auto;
 
         a
         {
