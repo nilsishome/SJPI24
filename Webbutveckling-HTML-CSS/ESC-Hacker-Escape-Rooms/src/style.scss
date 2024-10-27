@@ -460,7 +460,7 @@ section
     {
         @include breakpoint($desktop)
         {
-            padding: 2rem 6rem 0 6rem;
+            padding: 2rem 2.5rem 0 5rem;
         }
     }
 
@@ -561,6 +561,7 @@ footer
 
     @include breakpoint($desktop)
     {
+        margin-top: 10.5rem;
         padding: 8rem 6rem 8rem 6rem;
     }
 }

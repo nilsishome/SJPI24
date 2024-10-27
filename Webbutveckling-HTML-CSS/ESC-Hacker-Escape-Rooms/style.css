@@ -452,7 +452,7 @@ section button {
 }
 @media screen and (min-width: 1000px) {
   section .section__items {
-    padding: 2rem 6rem 0 6rem;
+    padding: 2rem 2.5rem 0 5rem;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -527,6 +527,7 @@ footer a:nth-child(5) {
 }
 @media screen and (min-width: 1000px) {
   footer {
+    margin-top: 10.5rem;
     padding: 8rem 6rem 8rem 6rem;
   }
 }
