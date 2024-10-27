@@ -33,7 +33,7 @@ header
     img
     {
         float: left;
-        padding-right: 0.75rem;
+        padding-right: 1.5rem;
         width: 9em;
 
         @include breakpoint($desktop)
@@ -55,6 +55,7 @@ header
             display: inline-block;
             font-size: 2.5rem;
             line-height: normal;
+            transform: translateY(-0.7rem);
             width: auto;
         }
     }
@@ -67,7 +68,7 @@ header
         {
             display: flex;
             justify-content: space-evenly;
-            padding: 4rem 0 1.5rem 0;
+            padding: 3.5rem 0 1.5rem 0;
 
             ul
             {
@@ -176,7 +177,7 @@ header
     display: flex;
     margin: 5rem 3rem 0 0;
 
-    .first_section__john_doe
+    .main__john_doe
     {
         display: inherit;
 
@@ -213,7 +214,7 @@ header
         }
     }
 
-    .first_section__john_doe_the_second
+    .main__john_doe_the_second
     {
         display: none;
 
@@ -270,7 +271,7 @@ header
         overflow: auto;
         white-space: nowrap;
 
-        .second__section_card
+        .main_card
         {
             border-radius: 10px;
             box-shadow: 0 0 5px $box-shadow-color;
@@ -334,7 +335,7 @@ header
             }
         }
 
-        .second__section_card:last-child
+        .main_card:last-child
         {
             margin-right: 3rem;
         }
@@ -404,6 +405,11 @@ section
     img
     {
         width: 100%;
+
+        @include breakpoint($desktop)
+        {
+            height: 26rem;
+        }
     }
 
     h2
@@ -411,12 +417,27 @@ section
         @include roboto-bold;
         font-size: 2rem;
         margin: 2rem 1rem;
+
+        @include breakpoint($desktop)
+        {
+            grid-column: 2;
+            grid-row: 1;
+            margin-bottom: 1rem;
+        }
     }
 
     p
     {
         font-size: 1.5rem;
         margin: 2rem 1rem;
+
+        @include breakpoint($desktop)
+        {
+            grid-column: 2;
+            grid-row: 1;
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+        }
     }
 
     button
@@ -426,6 +447,43 @@ section
         color: #fff;
         font-size: 1.5rem;
         margin: 2rem 1rem;
+
+        @include breakpoint($desktop)
+        {
+            grid-column: 2;
+            grid-row: 1;
+            margin-top: 0;
+        }
+    }
+
+    .section__items
+    {
+        @include breakpoint($desktop)
+        {
+            padding: 2rem 6rem 0 6rem;
+        }
+    }
+
+    .section__second_image
+    {
+        @include breakpoint($desktop)
+        {
+            grid-column: 2;
+            grid-row: 1;
+        }
+    }
+
+    .section__secondary_items
+    {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    @include breakpoint($desktop)
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 0;
     }
 }
 
