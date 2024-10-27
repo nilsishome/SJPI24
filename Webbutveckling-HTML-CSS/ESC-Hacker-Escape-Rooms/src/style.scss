@@ -514,8 +514,11 @@ footer
     {
         font-size: 1.125rem;
         margin: 0;
-        width: 26rem;
-        
+
+        @include breakpoint(470px)
+        {
+            width: 26rem;
+        }
     }
 
     ul
