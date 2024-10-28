@@ -403,7 +403,7 @@ section img {
 }
 @media screen and (min-width: 1000px) {
   section img {
-    height: 26rem;
+    height: 100%;
   }
 }
 section h2 {
@@ -453,7 +453,7 @@ section button {
 }
 @media screen and (min-width: 1000px) {
   section .section__items {
-    padding: 2rem 2.5rem 0 5rem;
+    padding: 2rem 5rem 0 5rem;
   }
 }
 @media screen and (min-width: 1000px) {

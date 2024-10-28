@@ -409,7 +409,7 @@ section
 
         @include breakpoint($desktop)
         {
-            height: 26rem;
+            height: 100%;
         }
     }
 
@@ -461,7 +461,7 @@ section
     {
         @include breakpoint($desktop)
         {
-            padding: 2rem 2.5rem 0 5rem;
+            padding: 2rem 5rem 0 5rem;
         }
     }
 
