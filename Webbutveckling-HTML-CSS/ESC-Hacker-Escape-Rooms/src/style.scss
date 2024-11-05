@@ -1,4 +1,5 @@
 @use "lib" as *;
+@use "ham-menu" as *;
 
 html
 {
@@ -62,27 +63,6 @@ header
 
     nav
     {   
-        background-color: $dark-blue;
-        height: 100vh;
-        position: fixed;
-        width: 100%;
-
-        left: 0;
-        top: 0;
-
-        li
-        {
-            @include roboto-bold;
-            font-size: 2.25rem;
-            list-style: none;
-            
-            a
-            {
-                color: #fff;
-                text-decoration: none;
-            }
-        }
-
         @include breakpoint($desktop)
         {
             display: flex;
