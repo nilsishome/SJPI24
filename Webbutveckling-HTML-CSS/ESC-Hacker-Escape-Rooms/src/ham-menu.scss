@@ -30,6 +30,26 @@
     }
 }
 
+.header__hamburger_menu.active
+{
+    span:nth-child(1)
+    {
+        top: 6%;
+        transform: rotate(45deg);
+    }
+
+    span:nth-child(2)
+    {
+        opacity: 0; 
+    }
+
+    span:nth-child(3)
+    {
+        top: 6%;
+        transform: rotate(-45deg);
+    }
+}
+
 header
 {
     nav
@@ -60,5 +80,11 @@ header
                 }
             }
         }
+    }
+
+    nav.active
+    {
+        left: 0;
+        right: 0;
     }
 }
