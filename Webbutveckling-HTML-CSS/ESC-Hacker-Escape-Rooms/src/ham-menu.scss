@@ -87,7 +87,7 @@ header
 
         right: -1000px;
         top: 0;
-        transition: 0.5s ease-in-out;
+        transition: 0.5s;
 
         ul
         {
@@ -113,6 +113,6 @@ header
     nav.active
     {
         right: 0;
-        transition: 0.5s ease-in-out;
+        transition: 0.5s;
     }
 }
