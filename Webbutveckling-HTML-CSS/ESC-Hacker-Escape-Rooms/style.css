@@ -1,19 +1,33 @@
 /* Variables */
 /* Mixins */
+body.active {
+  overflow: hidden;
+}
+
+.header__hamburger_menu .header__ham_click {
+  position: absolute;
+  height: 40px;
+  width: 50px;
+  top: 2%;
+  right: 5%;
+  z-index: 1;
+}
 .header__hamburger_menu span {
   background-color: #fff;
   border-radius: 25px;
   height: 6px;
   position: absolute;
   width: 53px;
-  top: 6%;
+  top: 4.5%;
   right: 5%;
+  transition: 0.5s;
 }
 .header__hamburger_menu span:nth-child(2) {
-  top: 4%;
+  top: 3%;
 }
 .header__hamburger_menu span:nth-child(3) {
-  top: 8%;
+  top: 6%;
+  transition: 0.5s;
 }
 @media screen and (min-width: 1000px) {
   .header__hamburger_menu {
@@ -22,18 +36,21 @@
 }
 
 .header__hamburger_menu.active span:nth-child(1) {
-  top: 6%;
   transform: rotate(45deg);
+  transition: 0.5s;
 }
 .header__hamburger_menu.active span:nth-child(2) {
   opacity: 0;
+  transform: rotate(360deg);
 }
 .header__hamburger_menu.active span:nth-child(3) {
-  top: 6%;
-  transform: rotate(-45deg);
+  top: 4.5%;
+  transform: rotate(-225deg);
+  transition: 0.5s;
 }
 
 header nav {
+  align-items: center;
   display: flex;
   background-color: #011827;
   flex-direction: column;
@@ -41,8 +58,12 @@ header nav {
   justify-content: center;
   position: fixed;
   width: 100%;
-  right: -550px;
+  right: -1000px;
   top: 0;
+  transition: 0.5s ease-in-out;
+}
+header nav ul {
+  padding: 0;
 }
 header nav ul li {
   font-family: "Roboto", sans-serif;
@@ -50,14 +71,16 @@ header nav ul li {
   font-style: normal;
   font-size: 2.25rem;
   list-style: none;
+  margin-top: 4rem;
+  text-align: center;
 }
 header nav ul li a {
   color: #fff;
   text-decoration: none;
 }
 header nav.active {
-  left: 0;
   right: 0;
+  transition: 0.5s ease-in-out;
 }
 
 html {

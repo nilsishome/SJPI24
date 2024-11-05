@@ -1,15 +1,22 @@
-const hamMenu = document.querySelector('.header__hamburger_menu');
+const body = document.querySelector('body');
+const hamDrop = document.querySelector('.header__hamburger_menu');
+const hamClick = document.querySelector('.header__ham_click');
 const navActive = document.querySelector('header nav');
-const hamBun = document.querySelector('.header__ham_bun');
 
-hamBun.addEventListener('click', () => {
+hamClick.addEventListener('click', () => {
 
-    if(hamMenu.getAttribute('class') === 'header__hamburger_menu')
+    if(hamDrop.getAttribute('class') === 'header__hamburger_menu' && 
+        navActive.getAttribute('class') === '' && 
+        body.getAttribute('class') === '')
     {
-        hamMenu.setAttribute('class', 'header__hamburger_menu active');
+        body.setAttribute('class', 'active');
+        hamDrop.setAttribute('class', 'header__hamburger_menu active');
+        navActive.setAttribute('class', 'active');
     }
     else
     {
-        hamMenu.setAttribute('class', 'header__hamburger_menu');
+        body.setAttribute('class', '');
+        hamDrop.setAttribute('class', 'header__hamburger_menu');
+        navActive.setAttribute('class', '');
     }
 });
