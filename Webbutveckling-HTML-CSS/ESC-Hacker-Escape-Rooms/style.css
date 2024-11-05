@@ -57,20 +57,39 @@ header h1 {
   }
 }
 header nav {
-  display: none;
+  background-color: #011827;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+header nav li {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.25rem;
+  list-style: none;
+}
+header nav li a {
+  color: #fff;
+  text-decoration: none;
 }
 @media screen and (min-width: 1000px) {
   header nav {
     display: flex;
     justify-content: space-evenly;
     padding: 3.5rem 0 1.5rem 0;
+    position: static;
+    height: auto;
+    width: auto;
   }
   header nav ul {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-style: normal;
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
   }
   header nav ul li {

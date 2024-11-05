@@ -61,20 +61,43 @@ header
     }
 
     nav
-    {
-        display: none;
+    {   
+        background-color: $dark-blue;
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+
+        left: 0;
+        top: 0;
+
+        li
+        {
+            @include roboto-bold;
+            font-size: 2.25rem;
+            list-style: none;
+            
+            a
+            {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
 
         @include breakpoint($desktop)
         {
             display: flex;
             justify-content: space-evenly;
             padding: 3.5rem 0 1.5rem 0;
+            position: static;
+
+            height: auto;
+            width: auto;
 
             ul
             {
                 @include roboto-bold;
                 list-style-type: none;
-                margin: 0;
+                margin: 0 auto;
                 padding: 0;
 
                 li
