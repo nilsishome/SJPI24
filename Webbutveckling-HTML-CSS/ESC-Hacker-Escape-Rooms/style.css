@@ -23,14 +23,12 @@
   top: 4.5%;
   right: 5%;
   z-index: 0;
-  transition: 0.5s;
 }
 .header__hamburger_menu span:nth-child(2) {
   top: 3%;
 }
 .header__hamburger_menu span:nth-child(3) {
   top: 6%;
-  transition: 0.5s;
 }
 @media screen and (min-width: 1000px) {
   .header__hamburger_menu {
@@ -40,19 +38,23 @@
 
 .header__hamburger_menu.active span {
   z-index: 1;
-  transition: z-index 0.1s;
-  transition-delay: 0.5s;
 }
 .header__hamburger_menu.active span:nth-child(1) {
   top: 4.5%;
   transform: rotate(45deg);
+  transition: transform 0;
+  transition-delay: 0.5s;
 }
 .header__hamburger_menu.active span:nth-child(2) {
   opacity: 0;
+  transition: opacity 0;
+  transition-delay: 0.5s;
 }
 .header__hamburger_menu.active span:nth-child(3) {
   top: 4.5%;
   transform: rotate(-45deg);
+  transition: transform 0;
+  transition-delay: 0.5s;
 }
 
 header nav {
@@ -67,7 +69,6 @@ header nav {
   left: 2.5%;
   top: 2.5%;
   z-index: -1;
-  transition: 0.5s;
 }
 header nav ul {
   padding: 0;
