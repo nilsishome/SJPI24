@@ -6,74 +6,85 @@
   }
 }
 
-.header__hamburger_menu .header__ham_click {
+.container.active {
+  opacity: 0.5;
+}
+
+.hamburger_menu .hamburger_click {
   position: absolute;
   height: 40px;
   width: 50px;
   top: 2%;
   right: 5%;
-  z-index: 1;
+  z-index: 2;
 }
-.header__hamburger_menu span {
+.hamburger_menu span {
   background-color: #fff;
   border-radius: 25px;
   height: 6px;
   position: absolute;
-  width: 53px;
+  width: 50px;
   top: 4.5%;
   right: 5%;
   z-index: 0;
 }
-.header__hamburger_menu span:nth-child(2) {
+.hamburger_menu span:nth-child(2) {
   top: 3%;
 }
-.header__hamburger_menu span:nth-child(3) {
+.hamburger_menu span:nth-child(3) {
   top: 6%;
 }
 @media screen and (min-width: 1000px) {
-  .header__hamburger_menu {
+  .hamburger_menu {
     display: none;
   }
 }
 
-.header__hamburger_menu.active span {
-  z-index: 1;
+.hamburger_menu.active .hamburger_click {
+  top: 3.5%;
 }
-.header__hamburger_menu.active span:nth-child(1) {
-  top: 4.5%;
+.hamburger_menu.active span {
+  z-index: 2;
+}
+.hamburger_menu.active span:nth-child(1) {
+  top: 5.5%;
   transform: rotate(45deg);
   transition: transform 0;
-  transition-delay: 0.5s;
+  transition-delay: 0.2s;
 }
-.header__hamburger_menu.active span:nth-child(2) {
+.hamburger_menu.active span:nth-child(2) {
   opacity: 0;
   transition: opacity 0;
-  transition-delay: 0.5s;
+  transition-delay: 0.2s;
 }
-.header__hamburger_menu.active span:nth-child(3) {
-  top: 4.5%;
+.hamburger_menu.active span:nth-child(3) {
+  top: 5.5%;
   transform: rotate(-45deg);
   transition: transform 0;
-  transition-delay: 0.5s;
+  transition-delay: 0.2s;
 }
 
 header nav {
+  display: none;
+}
+
+.mobile_nav {
   align-items: center;
   display: flex;
   background-color: #011827;
   flex-direction: column;
-  height: 96vh;
+  height: 97vh;
   justify-content: center;
   position: fixed;
   width: 95%;
   left: 2.5%;
-  top: 2.5%;
+  top: 1.5%;
   z-index: -1;
 }
-header nav ul {
+.mobile_nav ul {
   padding: 0;
 }
-header nav ul li {
+.mobile_nav ul li {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -82,30 +93,31 @@ header nav ul li {
   margin-top: 4rem;
   text-align: center;
 }
-header nav ul li a {
+.mobile_nav ul li a {
   color: #fff;
   text-decoration: none;
 }
-header nav.active {
+
+.mobile_nav.active {
   z-index: 1;
   animation-name: menu-animation;
-  animation-duration: 0.5s;
+  animation-duration: 0.2s;
 }
 
 @keyframes menu-animation {
   0% {
-    height: 50%;
+    height: 75%;
     opacity: 0;
-    width: 50%;
-    left: 25%;
-    top: 25%;
+    width: 75%;
+    left: 15%;
+    top: 15%;
   }
   100% {
     height: 96vh;
     opacity: 1;
     width: 95%;
     left: 2.5%;
-    top: 2.5%;
+    top: 1.5%;
   }
 }
 html {
