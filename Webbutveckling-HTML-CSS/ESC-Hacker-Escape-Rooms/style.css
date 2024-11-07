@@ -52,18 +52,18 @@
   top: 5.5%;
   transform: rotate(45deg);
   transition: transform 0;
-  transition-delay: 0.2s;
+  transition-delay: 0.3s;
 }
 .hamburger_menu.active span:nth-child(2) {
   opacity: 0;
   transition: opacity 0;
-  transition-delay: 0.2s;
+  transition-delay: 0.3s;
 }
 .hamburger_menu.active span:nth-child(3) {
   top: 5.5%;
   transform: rotate(-45deg);
   transition: transform 0;
-  transition-delay: 0.2s;
+  transition-delay: 0.3s;
 }
 
 header nav {
