@@ -4,6 +4,11 @@ const hamDrop = document.querySelector('.hamburger_menu');
 const hamClick = document.querySelector('.hamburger_click');
 const mobileNav = document.querySelector('.mobile_nav');
 
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  } 
+
 hamClick.addEventListener('click', () => {
 
     if(hamDrop.getAttribute('class') === 'hamburger_menu' && 
@@ -15,6 +20,7 @@ hamClick.addEventListener('click', () => {
         hamDrop.setAttribute('class', 'hamburger_menu active');
         mobileNav.setAttribute('class', 'mobile_nav active');
         container.setAttribute('class', 'container active');
+        topFunction();
     }
     else
     {
