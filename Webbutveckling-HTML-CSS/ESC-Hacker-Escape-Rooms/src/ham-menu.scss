@@ -10,7 +10,10 @@ body.active
 
 .container.active
 {
-    opacity: 0.5;
+    @media screen and (max-width: 1000px)
+    {
+        opacity: 0.5;
+    }
 }
 
 .hamburger_menu
@@ -136,6 +139,11 @@ header
             }
         }
     }
+
+    @include breakpoint($desktop)
+    {
+        display: none;
+    }
 }
 
 .mobile_nav.active
@@ -150,12 +158,12 @@ header
 {
     0%
     {
-        height: 75%;
+        height: 86vh;
         opacity: 0;
-        width: 75%;
+        width: 85%;
 
-        left: 15%;
-        top: 15%;
+        left: 5%;
+        top: 5%;
     }
 
     100%
