@@ -90,6 +90,7 @@ header nav {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
+  opacity: 0;
   font-size: 2.25rem;
   list-style: none;
   margin-top: 4rem;
@@ -108,14 +109,20 @@ header nav {
 .mobile_nav.active {
   z-index: 1;
   animation-name: menu-animation;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
+}
+.mobile_nav.active li {
+  animation-name: fade-in;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes menu-animation {
   0% {
     height: 86vh;
-    opacity: 0;
-    width: 85%;
+    opacity: 0.5;
+    width: 90%;
     left: 5%;
     top: 5%;
   }
@@ -125,6 +132,14 @@ header nav {
     width: 95%;
     left: 2.5%;
     top: 1.5%;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 html {
