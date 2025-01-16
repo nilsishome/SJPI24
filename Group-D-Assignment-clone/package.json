@@ -5,7 +5,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "sass:build": "sass src/styles/main.scss src/style.css"
+    "sass:build": "sass SASS/main.scss static/style.css"
   },
   "devDependencies": {
     "sass": "^1.83.0"

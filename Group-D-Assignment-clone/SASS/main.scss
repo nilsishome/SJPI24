@@ -1,10 +1,18 @@
+@use "./utils.scss" as *;
+@use "carousel.scss";
+@use "contact.scss";
+@use "cafe.scss";
+@use "header.scss";
+@use "nav.scss";
+@use "ongoingMovies.scss";
+@use "upcomingMovies.scss";
+@use "about.scss";
+@use "languageToggleBtn.scss";
+@use "footer.scss";
 
-@use './utils.scss' as *;
-@use 'footer.scss';
-
-body{
-background-color: $color-background;
-font-size: 16px;
+body {
+  background-color: $color-background;
+  font-size: 16px;
 
   li {
     list-style: none;
