@@ -12,7 +12,8 @@ async function getRender(res, path) {
 
 app.get("/", (req, res) => {
   getRender(res, "index");
-  app.use("/static", express.static("./src"));
+  app.use("/static", express.static("./static"));
+  app.use("/static", express.static("./static/js"));
 });
 
 app.get("/about", (req, res) => {
