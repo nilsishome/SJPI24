@@ -8,6 +8,7 @@
     "sass:build": "sass SASS/main.scss static/style.css"
   },
   "devDependencies": {
+    "nodemon": "^3.1.9",
     "sass": "^1.83.0"
   },
   "dependencies": {
