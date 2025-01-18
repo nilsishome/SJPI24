@@ -1,26 +1,20 @@
 {
-    "NavItems": {
-        "en":[
-            
-               { "name":"Start", "href":"/Group-d-assignment/index.html"},
-               { "name":"Movies", "href":"#2"},
-               { "name":"Dining", "href":"/Group-d-assignment/cafe.html"},
-               { "name":"About us", "href":"/Group-d-assignment/about.html"},
-               { "name":"Contact", "href":"/Group-d-assignment/contact.html"},
-               { "name":"Open hours", "href":"#6"}
-               
-             
-    
-            
-        ],
-        "sv":[
-            {"name":"Start","href":"/Group-d-assignment/index.html" },
-            {"name":"Filmer","href":"#2" },
-            {"name":"Servering","href":"/Group-d-assignment/cafe.html" },
-            {"name":"Om oss","href":"/Group-d-assignment/about.html" },
-            {"name":"Kontakt","href":"/Group-d-assignment/contact.html" },
-            {"name":"Öppettider","href":"#6" }
-            
-        ]
-    }
-    }
+  "NavItems": {
+    "en": [
+      { "name": "Start", "href": "/" },
+      { "name": "Movies", "href": "#2" },
+      { "name": "Dining", "href": "/cafe" },
+      { "name": "About us", "href": "/about" },
+      { "name": "Contact", "href": "/contact" },
+      { "name": "Open hours", "href": "#6" }
+    ],
+    "sv": [
+      { "name": "Start", "href": "/" },
+      { "name": "Filmer", "href": "#2" },
+      { "name": "Servering", "href": "/cafe" },
+      { "name": "Om oss", "href": "/about" },
+      { "name": "Kontakt", "href": "/contact" },
+      { "name": "Öppettider", "href": "#6" }
+    ]
+  }
+}

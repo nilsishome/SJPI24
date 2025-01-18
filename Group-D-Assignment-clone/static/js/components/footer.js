@@ -1,9 +1,7 @@
 import { fetchData } from "../helpers/fetchDataHelper.js";
-import "../../styles/footer.scss";
 
 export async function createFooter() {
-
-  const data = await fetchData("/Group-d-assignment/database/footer.json");
+  const data = await fetchData("/database/footer.json");
 
   if (!data) {
     console.error("Invalid data not found");
@@ -17,7 +15,7 @@ export async function createFooter() {
   const footerScreen = document.createElement("div");
   footerScreen.className = "footer__screen";
   const screenImg = document.createElement("img");
-  screenImg.src = "/Group-d-assignment/images/filmduk.png";
+  screenImg.src = "/static/images/filmduk.png";
   screenImg.alt = "Illustration of a screen";
   footerScreen.appendChild(screenImg);
   footer.appendChild(footerScreen);
@@ -26,17 +24,16 @@ export async function createFooter() {
   const footerSeats = document.createElement("div");
   footerSeats.className = "footer__seats";
   const seatsImg = document.createElement("img");
-  seatsImg.src = "/Group-d-assignment/images/stolar.png";
+  seatsImg.src = "/static/images/stolar.png";
   seatsImg.alt = "Illustration of a movie theater";
   footerSeats.appendChild(seatsImg);
   footer.appendChild(footerSeats);
 
   // Skapa footer__links
-const footerLinks = document.createElement("div");
-    footerLinks.className = "footer__links";
-    footer.appendChild(footerLinks);
+  const footerLinks = document.createElement("div");
+  footerLinks.className = "footer__links";
+  footer.appendChild(footerLinks);
   data.sections.forEach((section) => {
-  
     const ul = document.createElement("ul");
     ul.className = `footer__link__list`;
 

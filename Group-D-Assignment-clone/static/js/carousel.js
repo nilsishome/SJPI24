@@ -1,9 +1,7 @@
-import '../styles/carousel.scss';
-
 // Select all buttons with the data attribute for navigation
 const buttons = document.querySelectorAll("[data-carousel-button]");
 
-buttons.forEach(button => {
+buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const offset = button.dataset.carouselButton === "next" ? 1 : -1;
     const carousel = button.closest(".carousel");
@@ -28,9 +26,9 @@ buttons.forEach(button => {
 // Function to fetch movie data and populate the carousel
 const populateCarousel = async () => {
   try {
-    const response = await fetch('/Group-d-assignment/database/movies.json');
+    const response = await fetch("/database/movies.json");
     const jsonData = await response.json();
-    console.log('Movies jsonData fetched:', jsonData.movies);
+    console.log("Movies jsonData fetched:", jsonData.movies);
 
     const slides = document.querySelectorAll(".slides .slide");
 
@@ -50,8 +48,7 @@ const populateCarousel = async () => {
 
     // Initial positioning of the slides
     const slideWidth = slides[0].offsetWidth;
-    document.querySelector('.slides').style.transform = 'translateX(0)'; 
-
+    document.querySelector(".slides").style.transform = "translateX(0)";
   } catch (error) {
     console.error("Error fetching movie data:", error);
   }

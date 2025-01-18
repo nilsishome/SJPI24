@@ -1,13 +1,11 @@
-
-import '../styles/contact.scss';
-import { createFooter } from './components/footer';
-import './header.js';
+import { createFooter } from "./components/footer.js";
+import "./header.js";
 
 // Header fetch
 // Fetch file from contact.json because fetch dont work when file lies in src folder
 // Footer fetch
 
-fetch("./database/contact.json")
+fetch("/database/contact.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -67,13 +65,13 @@ const setupValidation = (validationMessages) => {
     input.classList.remove("invalid");
     error.classList.remove("visible");
 
-    if (field.id === "email" && input.value.trim() !== "") { 
+    if (field.id === "email" && input.value.trim() !== "") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(input.value.trim())) { 
-        error.textContent = validationMessages.email; 
+      if (!emailRegex.test(input.value.trim())) {
+        error.textContent = validationMessages.email;
         error.classList.add("visible");
         input.classList.add("invalid");
-        return false; 
+        return false;
       }
     }
 
@@ -93,14 +91,13 @@ const setupValidation = (validationMessages) => {
       input.classList.add("invalid");
       return false;
     }
-      return true;
-    
+    return true;
   };
 
   const validateForm = () => {
     let isValid = true;
     fields.forEach((field) => {
-      if (!visitedFields.has(field.id)) return;  //
+      if (!visitedFields.has(field.id)) return; //
       if (!validateField(field)) {
         isValid = false;
       }
@@ -121,50 +118,46 @@ const setupValidation = (validationMessages) => {
         error.textContent = field.message;
         error.classList.add("visible");
         input.classList.add("invalid");
-      } else { 
+      } else {
         error.textContent = "";
         error.classList.remove("visible");
-        input.classList.remove("invalid");  //
+        input.classList.remove("invalid"); //
       }
       validateForm();
     });
   });
 
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     let isValid = true;
-  
+
     fields.forEach((field) => visitedFields.add(field.id));
-  
+
     fields.forEach((field) => {
       if (!validateField(field)) {
         isValid = false;
       }
     });
-  
+
     if (isValid) {
-      
       const successMessage = document.createElement("div");
       successMessage.textContent = "Formuläret har skickats!";
       successMessage.classList.add("success-message");
-  
-     
+
       const existingMessage = document.querySelector(".success-message");
       if (existingMessage) {
         existingMessage.remove();
       }
-  
+
       form.appendChild(successMessage);
-  
-      
+
       form.reset();
       visitedFields.clear();
-      validateForm(); 
+      validateForm();
     }
   });
-  
- 
+
   window.addEventListener("DOMContentLoaded", () => {
     submitButton.disabled = true;
-});}
+  });
+};

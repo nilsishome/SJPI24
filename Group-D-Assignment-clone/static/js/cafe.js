@@ -1,37 +1,34 @@
-import { fetchData } from './helpers/fetchDataHelper.js';
-import { setupScrollAnimation } from './helpers/animations/listScrollAnimation.js';
+import { fetchData } from "./helpers/fetchDataHelper.js";
+import { setupScrollAnimation } from "./helpers/animations/listScrollAnimation.js";
 import {
   currentLanguage,
   createLanguageToggleBtn,
-} from './components/languageToggleBtn.js';
-import './components/footer.js';
-import './header.js';
-import '../styles/cafe.scss';
-import '../styles/languageToggleBtn.scss';
+} from "./components/languageToggleBtn.js";
+import "./components/footer.js";
+import "./header.js";
 
-
-const menuContainer = document.querySelector('#cafe-menu-container');
+const menuContainer = document.querySelector("#cafe-menu-container");
 
 const loadMenuItems = async (menu, language) => {
-  menuContainer.innerHTML = '';
+  menuContainer.innerHTML = "";
 
-  const snacksSection = document.createElement('section');
-  snacksSection.className = 'menu-section snacks-section';
+  const snacksSection = document.createElement("section");
+  snacksSection.className = "menu-section snacks-section";
 
-  const snacksTitle = document.createElement('h2');
-  snacksTitle.className = 'menu-section__title menu-section__title-snacks';
-  snacksTitle.textContent = language === 'sv' ? 'Snacks' : 'Snacks';
+  const snacksTitle = document.createElement("h2");
+  snacksTitle.className = "menu-section__title menu-section__title-snacks";
+  snacksTitle.textContent = language === "sv" ? "Snacks" : "Snacks";
   snacksSection.appendChild(snacksTitle);
 
-  const snacksList = document.createElement('ul');
-  snacksList.className = 'cafe-menu__list cafe-menu__List__snacks';
+  const snacksList = document.createElement("ul");
+  snacksList.className = "cafe-menu__list cafe-menu__List__snacks";
 
   menu.snacks.forEach((item) => {
-    const menuItem = document.createElement('li');
-    menuItem.className = 'cafe-menu__item cafe-menu__List__snacks-item';
+    const menuItem = document.createElement("li");
+    menuItem.className = "cafe-menu__item cafe-menu__List__snacks-item";
     menuItem.textContent = `${item.name[language]}`;
 
-    const menuItemPrice = document.createElement('span');
+    const menuItemPrice = document.createElement("span");
     menuItemPrice.textContent = `${item.price} SEK`;
 
     menuItem.appendChild(menuItemPrice);
@@ -39,24 +36,24 @@ const loadMenuItems = async (menu, language) => {
     snacksList.appendChild(menuItem);
   });
 
-  const beveragesSection = document.createElement('section');
-  beveragesSection.className = 'menu-section beverages-section';
+  const beveragesSection = document.createElement("section");
+  beveragesSection.className = "menu-section beverages-section";
 
-  const beveragesTitle = document.createElement('h2');
+  const beveragesTitle = document.createElement("h2");
   beveragesTitle.className =
-    'menu-section__title menu-section__title-beverages';
-  beveragesTitle.textContent = language === 'sv' ? 'Drycker' : 'Beverages';
+    "menu-section__title menu-section__title-beverages";
+  beveragesTitle.textContent = language === "sv" ? "Drycker" : "Beverages";
   beveragesSection.appendChild(beveragesTitle);
 
-  const beveragesList = document.createElement('ul');
-  beveragesList.className = 'cafe-menu__list cafe-menu__List__beverages';
+  const beveragesList = document.createElement("ul");
+  beveragesList.className = "cafe-menu__list cafe-menu__List__beverages";
 
   menu.beverages.forEach((item) => {
-    const menuItem = document.createElement('li');
-    menuItem.className = 'cafe-menu__item cafe-menu__List__bevrages-item';
+    const menuItem = document.createElement("li");
+    menuItem.className = "cafe-menu__item cafe-menu__List__bevrages-item";
     menuItem.textContent = `${item.name[language]} `;
 
-    const menuItemPrice = document.createElement('span');
+    const menuItemPrice = document.createElement("span");
     menuItemPrice.textContent = `${item.price} SEK`;
 
     menuItem.appendChild(menuItemPrice);
@@ -68,21 +65,21 @@ const loadMenuItems = async (menu, language) => {
 
   menuContainer.appendChild(snacksSection);
   menuContainer.appendChild(beveragesSection);
-  setupScrollAnimation('li');
+  setupScrollAnimation("li");
 };
 const loadCafeMenu = async (language) => {
-  const data = await fetchData('/Group-d-assignment//database/cafeMenu.json');
+  const data = await fetchData("/database/cafeMenu.json");
 
   if (data && data.menu) {
     loadMenuItems(data.menu, language);
   } else {
-    console.error('Failed to load cafe menu data.');
+    console.error("Failed to load cafe menu data.");
     return [];
   }
 };
-document.addEventListener('DOMContentLoaded', () => {
-  const cafeMenuContainer = document.createElement('div');
-  cafeMenuContainer.id = 'cafe-menu-container';
+document.addEventListener("DOMContentLoaded", () => {
+  const cafeMenuContainer = document.createElement("div");
+  cafeMenuContainer.id = "cafe-menu-container";
   document.body.appendChild(cafeMenuContainer);
 
   loadCafeMenu(currentLanguage);
@@ -91,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentLanguage,
     (newLanguage) => {
       loadCafeMenu(newLanguage);
-    },
+    }
   );
 
   document.body.prepend(languageToggleBtn);
