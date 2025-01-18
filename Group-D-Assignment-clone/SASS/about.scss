@@ -1,4 +1,4 @@
-@use './utils.scss' as *;
+@use "./utils.scss" as *;
 
 body {
   color: $color-text;
@@ -26,7 +26,7 @@ body {
   padding: 2rem;
   border: 10px solid transparent;
   padding: 15px;
-  border-image: url(/Group-d-assignment/images/about-us-img/indoors-decor.jpg) 20% stretch;
+  border-image: url(/static/images/about-us-img/indoors-decor.jpg) 20% stretch;
   //    border: inset 5px rgba($color: #f1ddc5, $alpha: 0.1);
 }
 .about-us__imgContainer {

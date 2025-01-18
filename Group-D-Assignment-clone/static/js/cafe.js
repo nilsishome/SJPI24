@@ -91,5 +91,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  document.body.prepend(languageToggleBtn);
+  document.querySelector("main").prepend(languageToggleBtn);
 });
