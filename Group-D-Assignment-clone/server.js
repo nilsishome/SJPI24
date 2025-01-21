@@ -29,7 +29,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/cafe", (req, res) => {
-  getRender(res, "cafe");
+  res.render("cafe");
 });
 
 app.get("/contact", (req, res) => {

@@ -1,0 +1,12 @@
+extends template/main.pug 
+
+block headStuff
+    title cafe menu
+
+block scripts
+    script(type='module', src='/static/js/cafe.js')
+
+block content
+    main
+        article(class='cafe-menu')
+            div(id='cafe-menu-container', class='cafe-menu__container')
