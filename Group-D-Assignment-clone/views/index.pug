@@ -1,5 +1,13 @@
-include template/main.pug
-main
+extends template/main.pug
+
+block headStuff
+    meta(name='descripton', content='Retro biografen ligger i Västerås och visar filmer från förr')
+    meta(name='keywords', content='Biograf, retro, 50-tal, 70-tal, 80-tal, 90-tal, 00-tal, Västerås')
+    meta(name='robots', content='index, follow')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    title Retro - biografen som visar filmer från förr -
+
+block content
     // Karusell topcontent
     section(class='newest')
         div(class='carousel')
@@ -23,9 +31,9 @@ main
         div(class='upcomingMovies')
 
     // Biogåvan
-    section(class="gift-section")
-        h2(class="gift-section__header") BIOGÅVA
-        div(class="gift-section__img-container")
-            img(class="gift-section__gift-image", src="/static/images/popcorn.png")
+    section(class='gift-section')
+        h2(class='gift-section__header') BIOGÅVA
+        div(class='gift-section__img-container')
+            img(class='gift-section__gift-image', src='/static/images/popcorn.png')
             p(class='gift-section__gift-text') Ge bort en bioupplevelse till någon du bryr dig om!
         button(class='gift-section__gift-button') Köp en gåva
