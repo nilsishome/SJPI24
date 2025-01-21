@@ -33,7 +33,7 @@ app.get("/cafe", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  getRender(res, "contact");
+  res.render("contact");
 });
 
 app.listen(5080);
