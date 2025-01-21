@@ -1,5 +1,4 @@
 import express from "express";
-import pug from "pug";
 import fs from "fs/promises";
 import path from "path";
 
@@ -33,7 +32,7 @@ app.get("/cafe", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  getRender(res, "contact");
+  res.render("contact");
 });
 
 app.listen(5080);
