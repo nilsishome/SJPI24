@@ -1,0 +1,12 @@
+extends template/main.pug
+
+block headStuff
+    title About-us
+
+block scripts
+    script(type='module', src='/static/js/aboutUs.js' defer)
+
+block content
+    main
+        article(class='about-us')
+            div(id='about-us-container', class='about-us__container')

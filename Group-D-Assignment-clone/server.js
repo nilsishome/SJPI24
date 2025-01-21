@@ -5,13 +5,6 @@ import path from "path";
 
 const app = express();
 
-async function getRender(res, path) {
-  const htmlBuf = await fs.readFile(`${path}.html`);
-  const htmlText = htmlBuf.toString();
-
-  res.send(htmlText);
-}
-
 app.set("views", "./views");
 app.set("view engine", "pug");
 
@@ -32,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  getRender(res, "about");
+  res.render("about");
 });
 
 app.get("/cafe", (req, res) => {
