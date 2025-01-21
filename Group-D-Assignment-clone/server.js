@@ -12,7 +12,7 @@ async function getRender(res, path) {
   res.send(htmlText);
 }
 
-app.set("views", "./templates");
+app.set("views", "./views");
 app.set("view engine", "pug");
 
 app.use("/static", express.static("./static"));
@@ -27,12 +27,8 @@ app.get("/database/:filename", async (req, res) => {
   res.send(JSON.parse(dataText));
 });
 
-app.get("/index", (req, res) => {
-  res.render("main");
-});
-
 app.get("/", (req, res) => {
-  getRender(res, "index");
+  res.render("index");
 });
 
 app.get("/about", (req, res) => {

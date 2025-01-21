@@ -1,0 +1,31 @@
+include template/main.pug
+main
+    // Karusell topcontent
+    section(class='newest')
+        div(class='carousel')
+            div(class='slides')
+                - for (var x = 0; x < 3; x++)
+                  div(class='slide')
+            button(class='carousel-button prev', data-carousel-button='prev') &#8656;
+            button(class='carousel-button next', data-carousel-button='next') &#8658;
+
+    // Filmer som visas nu
+    section(class='ongoingMoviesSection', id='ongoingMoviesSection')
+        h2(class='ongoingMoviesSection__header') Filmer som visas nu
+        div(class='ongoingMovies')
+
+    // Karusell bottomcontent
+    section(class='carusell2')
+
+    // Kommande filmer
+    section(class='upcomingMoviesSection')
+        h2(class='upcomingMoviesSection__header')
+        div(class='upcomingMovies')
+
+    // Biogåvan
+    section(class="gift-section")
+        h2(class="gift-section__header") BIOGÅVA
+        div(class="gift-section__img-container")
+            img(class="gift-section__gift-image", src="/static/images/popcorn.png")
+            p(class='gift-section__gift-text') Ge bort en bioupplevelse till någon du bryr dig om!
+        button(class='gift-section__gift-button') Köp en gåva
