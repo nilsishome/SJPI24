@@ -1,4 +1,5 @@
 import express from "express";
+import pug from "pug";
 import fs from "fs/promises";
 import path from "path";
 
@@ -11,6 +12,9 @@ async function getRender(res, path) {
   res.send(htmlText);
 }
 
+app.set("views", "./templates");
+app.set("view engine", "pug");
+
 app.use("/static", express.static("./static"));
 
 app.get("/database/:filename", async (req, res) => {
@@ -21,6 +25,10 @@ app.get("/database/:filename", async (req, res) => {
   const dataText = dataBuf.toString();
   // Sending JSON data to client.
   res.send(JSON.parse(dataText));
+});
+
+app.get("/index", (req, res) => {
+  res.render("main");
 });
 
 app.get("/", (req, res) => {
