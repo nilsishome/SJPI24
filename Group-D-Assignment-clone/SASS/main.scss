@@ -10,9 +10,12 @@
 @use "languageToggleBtn.scss";
 @use "footer.scss";
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: $color-background;
-  font-size: 16px;
 
   li {
     list-style: none;

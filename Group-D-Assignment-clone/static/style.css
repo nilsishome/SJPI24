@@ -799,9 +799,12 @@ footer {
   }
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: #1a323c;
-  font-size: 16px;
 }
 body li {
   list-style: none;
