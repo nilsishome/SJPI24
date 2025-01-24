@@ -10,12 +10,14 @@
 @use "languageToggleBtn.scss";
 @use "footer.scss";
 @use "movie.scss";
+@use "movies.scss";
 
 html {
   font-size: 16px;
 }
 
 body {
+  @include font-poppins;
   background-color: $color-background;
 
   li {

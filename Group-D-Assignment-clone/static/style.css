@@ -831,8 +831,27 @@ footer {
 }
 
 .movies__list {
-  background-color: #f1ddc5;
-  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  overflow: hidden;
+  padding: 2rem 2rem 0 2rem;
+  margin-bottom: 0;
+}
+.movies__list_containers {
+  margin-left: 4rem;
+}
+.movies__list_containers img {
+  width: 15rem;
+  height: 25rem;
+}
+.movies__list_containers p {
+  color: #f1ddc5;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 15rem;
 }
 
 html {
@@ -840,6 +859,9 @@ html {
 }
 
 body {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
   background-color: #1a323c;
 }
 body li {

@@ -1,0 +1,33 @@
+@use "./utils.scss" as *;
+
+.movies__header {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.movies__list {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  overflow: hidden;
+  padding: 2rem 2rem 0 2rem;
+  margin-bottom: 0;
+
+  &_containers {
+    margin-left: 4rem;
+
+    img {
+      width: 15rem;
+      height: 25rem;
+    }
+
+    p {
+      color: $color-text;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      text-align: center;
+      width: 15rem;
+    }
+  }
+}
