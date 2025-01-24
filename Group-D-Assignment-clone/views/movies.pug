@@ -8,5 +8,5 @@ block content
     ul
         each movie in movies
           li
-            a(href='/movies/' - movie.attributes.id) #{movie.attributes.title}
+            a(href='/movies/' + movie.id) #{movie.attributes.title}
             
