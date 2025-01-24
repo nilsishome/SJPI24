@@ -1,0 +1,12 @@
+extends template/main.pug
+
+block headStuff
+    title Filmer
+
+block content
+    h1 Welcome to the internet!
+    ul
+        each movie in movies
+          li
+            a(href='/movies/' - movie.attributes.id) #{movie.attributes.title}
+            

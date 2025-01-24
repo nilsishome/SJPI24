@@ -1,6 +1,6 @@
 import express from "express";
 import fs from "fs/promises";
-import path from "path";
+import { retrieveMovies, retrieveMovie } from "./static/js/moviesPage.js";
 
 const app = express();
 
@@ -11,7 +11,7 @@ app.use("/static", express.static("./static"));
 
 app.get("/database/:filename", async (req, res) => {
   const { filename } = req.params;
-  const filePath = path.join("./database", filename);
+  const filePath = "./database/" + filename;
 
   const dataBuf = await fs.readFile(filePath);
   const dataText = dataBuf.toString();
@@ -33,6 +33,11 @@ app.get("/cafe", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.render("contact");
+});
+
+app.get("/movies", async (req, res) => {
+  const movies = await retrieveMovies();
+  res.render("movies", { movies });
 });
 
 app.listen(5080);
