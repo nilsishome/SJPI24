@@ -40,4 +40,9 @@ app.get("/movies", async (req, res) => {
   res.render("movies", { movies });
 });
 
+app.get("/movies/:id", async (req, res) => {
+  const movie = await retrieveMovie(req.params.id);
+  res.render("movie", { movie });
+});
+
 app.listen(5080);

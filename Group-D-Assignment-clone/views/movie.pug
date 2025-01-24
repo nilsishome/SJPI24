@@ -1,0 +1,12 @@
+extends template/main.pug
+
+block headStuff
+    title Film
+
+block content
+    a(href='/movies') Tillbaka till filmer
+    article
+        h1 #{movie.attributes.title}
+        div #{movie.attributes.intro}
+        - if (movie.attributes.image)
+          img(src= movie.attributes.image.url)
