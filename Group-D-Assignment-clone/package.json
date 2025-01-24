@@ -5,7 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "sass:build": "sass SASS/main.scss static/style.css"
+    "sass:build": "sass SASS/main.scss static/style.css",
+    "sass:watch": "sass --watch SASS/main.scss static/style.css"
   },
   "devDependencies": {
     "nodemon": "^3.1.9",

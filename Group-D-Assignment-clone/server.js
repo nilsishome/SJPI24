@@ -1,6 +1,6 @@
 import express from "express";
 import fs from "fs/promises";
-import { retrieveMovies, retrieveMovie } from "./static/js/moviesPage.js";
+import { retrieveMovies, retrieveMovie } from "./static/js/fetchMovies.js";
 
 const app = express();
 

@@ -799,6 +799,42 @@ footer {
   }
 }
 
+.movie {
+  background-color: #f1ddc5;
+  color: #000;
+  padding: 2rem;
+}
+.movie__header {
+  text-align: center;
+}
+.movie_container {
+  display: flex;
+}
+.movie_container__description {
+  margin-left: 20%;
+  max-width: 25rem;
+}
+.movie_container img {
+  margin-left: 2%;
+  max-width: 14rem;
+}
+
+.link_to_movies {
+  background-color: #f1ddc5;
+  padding: 1rem;
+  text-decoration: underline;
+}
+
+.movies__header {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.movies__list {
+  background-color: #f1ddc5;
+  padding: 2rem;
+}
+
 html {
   font-size: 16px;
 }

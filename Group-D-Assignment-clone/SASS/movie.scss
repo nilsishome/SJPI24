@@ -1,0 +1,31 @@
+@use "./utils.scss" as *;
+
+.movie {
+  background-color: $color-text;
+  color: #000;
+  padding: 2rem;
+
+  &__header {
+    text-align: center;
+  }
+
+  &_container {
+    display: flex;
+
+    &__description {
+      margin-left: 20%;
+      max-width: 25rem;
+    }
+
+    img {
+      margin-left: 2%;
+      max-width: 14rem;
+    }
+  }
+}
+
+.link_to_movies {
+  background-color: $color-text;
+  padding: 1rem;
+  text-decoration: underline;
+}
