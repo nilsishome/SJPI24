@@ -6,11 +6,15 @@
   "main": "server.js",
   "scripts": {
     "sass:build": "sass SASS/main.scss static/style.css",
-    "sass:watch": "sass --watch SASS/main.scss static/style.css"
+    "sass:watch": "sass --watch SASS/main.scss static/style.css",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.9",
-    "sass": "^1.83.0"
+    "sass": "^1.83.0",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
     "express": "^4.21.2",
