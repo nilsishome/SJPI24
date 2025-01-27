@@ -1,8 +1,10 @@
 import express from "express";
 import fs from "fs/promises";
 import { retrieveMovies, retrieveMovie } from "../fetchMovies.js";
+import MarkdownIt from "markdown-it";
 
 const app = express();
+const marked = MarkdownIt();
 
 app.set("views", "./views");
 app.set("view engine", "pug");
@@ -42,7 +44,7 @@ app.get("/movies", async (req, res) => {
 
 app.get("/movies/:id", async (req, res) => {
   const movie = await retrieveMovie(req.params.id);
-  res.render("movie", { movie });
+  res.render("movie", { movie, intro: marked.render(movie.intro) });
 });
 
 export default app;
