@@ -3,11 +3,15 @@ import fetch from "node-fetch";
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
 
 function destruct(apiObject) {
-  const movie = {
-    id: apiObject.id,
-    ...apiObject.attributes,
-  };
-  return movie;
+  try {
+    const movie = {
+      id: apiObject.id,
+      ...apiObject.attributes,
+    };
+    return movie;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function retrieveMovies() {
