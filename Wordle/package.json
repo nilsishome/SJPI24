@@ -5,7 +5,7 @@
   "type": "module",
   "main": "algoritmA.js",
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --verbose"
   },
   "keywords": [],
   "author": "",
