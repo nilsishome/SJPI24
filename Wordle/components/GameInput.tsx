@@ -2,13 +2,12 @@ import React, { JSX, useState, useEffect } from "react";
 import { onType, onDelete } from "../components/inputActions";
 
 const GameInput: React.FC = (): JSX.Element => {
+  const letterBoxes: string[] = Array(5).fill("");
   const [currentLetters, setCurrentLetters] = useState<string[][]>(
-    Array(6).fill(Array(5).fill(""))
+    Array(6).fill(letterBoxes)
   );
   const [currentGuessIndex, setCurrentGuessIndex] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
-
-  const letterBoxes: number[] = [...Array(5)];
 
   useEffect(() => {
     const handleKeyUp = (event: KeyboardEvent): void => {

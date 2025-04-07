@@ -1,5 +1,6 @@
-import React, { JSX, useEffect } from "react";
+import React, { JSX } from "react";
 import GameBoard from "../components/GameBoard";
+import GameInput from "../components/GameInput";
 
 /*
  *  The plan is to create a Wordle app; using React, TypeScript, server-side
@@ -19,10 +20,16 @@ import GameBoard from "../components/GameBoard";
  */
 
 const App: React.FC = (): JSX.Element => {
+  // Background color of the game page
+  document.body.style = "background-color: #474747";
+
   return (
     <main className="App">
       <h1 id="title">Wordle</h1>
       <section id="boardWrapper">
+        <GameInput />
+      </section>
+      <section id="keyWrapper">
         <GameBoard />
       </section>
     </main>
