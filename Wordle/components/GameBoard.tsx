@@ -1,16 +1,35 @@
-import React, { JSX } from "react";
+import React, { JSX, MouseEventHandler } from "react";
 
-const GameBoard: React.FC = (): JSX.Element => {
-  const KEYS1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
-  const KEYS2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
-  const KEYS3 = ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "DELETE"];
+type Props = {
+  onClick: MouseEventHandler<HTMLButtonElement>;
+};
+
+const GameBoard: React.FC<Props> = ({ onClick }): JSX.Element => {
+  const KEYS1: string[] = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
+  const KEYS2: string[] = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
+  const KEYS3: string[] = [
+    "Enter",
+    "Z",
+    "X",
+    "C",
+    "V",
+    "B",
+    "N",
+    "M",
+    "Backspace",
+  ];
 
   return (
     <>
       <div>
         {KEYS1.map(
           (_, index: number): JSX.Element => (
-            <button key={index} id={`ID1${index}`} className="keyboard">
+            <button
+              key={index}
+              id={`ID1${index}`}
+              className="keyboard"
+              onClick={onClick}
+            >
               {KEYS1[index]}
             </button>
           )
@@ -19,7 +38,12 @@ const GameBoard: React.FC = (): JSX.Element => {
       <div>
         {KEYS2.map(
           (_, index: number): JSX.Element => (
-            <button key={index} id={`ID2${index}`} className="keyboard">
+            <button
+              key={index}
+              id={`ID2${index}`}
+              className="keyboard"
+              onClick={onClick}
+            >
               {KEYS2[index]}
             </button>
           )
@@ -28,7 +52,12 @@ const GameBoard: React.FC = (): JSX.Element => {
       <div>
         {KEYS3.map(
           (_, index: number): JSX.Element => (
-            <button key={index} id={`ID3${index}`} className="keyboard">
+            <button
+              key={index}
+              id={`ID3${index}`}
+              className="keyboard"
+              onClick={onClick}
+            >
               {KEYS3[index]}
             </button>
           )

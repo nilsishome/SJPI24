@@ -9,15 +9,16 @@ import { onType, onDelete } from "../components/inputActions";
  *  probably with Express.
  *
  *  I will also create a database - for the first time in this education -
- *  containing high-scores. We will probably use MongoDB.
+ *  containing high-scores. We will use MongoDB.
  *
  *  All functionality will be implemented with the help from TypeScript.
  *  The high-score page will be server-side rendered, either by Pug or EJS.
  *
  *  Step 1: is to create the game itself!
- *    1a. Implement functionality and UI (using a template word-library for now)
+ *    1a. Implement functionality and GUI
  *    1b. Import the real word-library to our backend
  *    1c.
+ *  Step 2: is to create the backend with the game- and API functionality
  */
 
 const App: React.FC = (): JSX.Element => {
@@ -28,29 +29,37 @@ const App: React.FC = (): JSX.Element => {
   const [currentGuessIndex, setCurrentGuessIndex] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
-  document.body.style = "background-color: #474747";
+  const handleUserInput = (userInput: string): void => {
+    const newLetters: string[][] = currentLetters.map((row: string[]) => [
+      ...row,
+    ]);
+    const emptyIndex: number = newLetters[currentGuessIndex].indexOf("");
+
+    if (!gameOver) {
+      if (userInput.match(/^[A-Za-z]$/)) {
+        onType(emptyIndex, newLetters, currentGuessIndex, userInput);
+        setCurrentLetters(newLetters);
+      } else if (userInput === "Backspace") {
+        onDelete(emptyIndex, newLetters, currentGuessIndex);
+        setCurrentLetters(newLetters);
+      } else if (userInput === "Enter") {
+        if (currentGuessIndex < currentLetters.length - 1) {
+          if (emptyIndex === -1) setCurrentGuessIndex(currentGuessIndex + 1);
+        } else setGameOver(true);
+      }
+    }
+  };
+
+  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    const letter = event.currentTarget.textContent;
+    if (letter) {
+      handleUserInput(letter);
+    }
+  };
 
   useEffect(() => {
     const handleKeyUp = (event: KeyboardEvent): void => {
-      const newLetters: string[][] = currentLetters.map((row: string[]) => [
-        ...row,
-      ]);
-      const userInput: string = event.key;
-      const emptyIndex: number = newLetters[currentGuessIndex].indexOf("");
-
-      if (!gameOver) {
-        if (userInput.match(/^[A-Za-z]$/)) {
-          onType(emptyIndex, newLetters, currentGuessIndex, userInput);
-          setCurrentLetters(newLetters);
-        } else if (userInput === "Backspace") {
-          onDelete(emptyIndex, newLetters, currentGuessIndex);
-          setCurrentLetters(newLetters);
-        } else if (userInput === "Enter") {
-          if (currentGuessIndex < currentLetters.length - 1) {
-            if (emptyIndex === -1) setCurrentGuessIndex(currentGuessIndex + 1);
-          } else setGameOver(true);
-        }
-      }
+      handleUserInput(event.key);
     };
 
     window.addEventListener("keyup", handleKeyUp);
@@ -67,7 +76,7 @@ const App: React.FC = (): JSX.Element => {
         <GameInput letterBoxes={letterBoxes} currentLetters={currentLetters} />
       </section>
       <section id="keyWrapper">
-        <GameBoard />
+        <GameBoard onClick={handleOnClick} />
       </section>
     </main>
   );

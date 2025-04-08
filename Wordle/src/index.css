@@ -1,3 +1,7 @@
+.App, html {
+  background-color: #474747;
+}
+
 #title {
   text-align: center;
   color: #fff;
