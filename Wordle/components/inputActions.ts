@@ -1,27 +1,15 @@
-function onType(
-  emptyIndex: number,
-  newLetters: string[][],
-  currentGuessIndex: number,
-  userInput: string
-) {
-  if (emptyIndex !== -1) {
-    newLetters[currentGuessIndex][emptyIndex] = userInput.toLowerCase();
-  } else {
-    newLetters[currentGuessIndex][emptyIndex] = "";
-  }
+function onType(emptyIndex: number, newLetters: string[], userInput: string) {
+  if (emptyIndex !== -1) newLetters[emptyIndex] = userInput.toUpperCase();
+  else newLetters[emptyIndex] = "";
 }
 
-function onDelete(
-  emptyIndex: number,
-  newLetters: string[][],
-  currentGuessIndex: number
-) {
-  if (emptyIndex === -1) {
-    newLetters[currentGuessIndex][newLetters[currentGuessIndex].length - 1] =
-      "";
-  } else {
-    newLetters[currentGuessIndex][emptyIndex - 1] = "";
-  }
+function onDelete(emptyIndex: number, newLetters: string[]) {
+  if (emptyIndex === -1) newLetters[newLetters.length - 1] = "";
+  else newLetters[emptyIndex - 1] = "";
 }
 
-export { onType, onDelete };
+function onEnter(emptyIndex: number, newLetters: string[]) {
+  if (emptyIndex === -1) newLetters.fill("");
+}
+
+export { onType, onDelete, onEnter };

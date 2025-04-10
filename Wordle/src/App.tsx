@@ -1,7 +1,7 @@
 import React, { JSX, useState, useEffect } from "react";
 import GameBoard from "../components/GameBoard";
 import GameInput from "../components/GameInput";
-import { onType, onDelete } from "../components/inputActions";
+import { onType, onDelete, onEnter } from "../components/inputActions";
 
 /*
  *  The plan is to create a Wordle app; using React, TypeScript, server-side
@@ -15,65 +15,56 @@ import { onType, onDelete } from "../components/inputActions";
  *  The high-score page will be server-side rendered, either by Pug or EJS.
  *
  *  Step 1: is to create the game itself!
- *    1a. Implement functionality and GUI
+ *    1a. Implement functionality and most of the GUI
  *    1b. Import the real word-library to our backend
  *    1c.
- *  Step 2: is to create the backend with the game- and API functionality
  */
 
 const App: React.FC = (): JSX.Element => {
-  const letterBoxes: string[] = Array(5).fill("");
-  const [currentLetters, setCurrentLetters] = useState<string[][]>(
-    Array(6).fill(letterBoxes)
+  const [currentLetters, setCurrentLetters] = useState<string[]>(
+    Array(5).fill("")
   );
-  const [currentGuessIndex, setCurrentGuessIndex] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
   const handleUserInput = (userInput: string): void => {
-    const newLetters: string[][] = currentLetters.map((row: string[]) => [
-      ...row,
-    ]);
-    const emptyIndex: number = newLetters[currentGuessIndex].indexOf("");
+    const newLetters: string[] = [...currentLetters];
+    const emptyIndex: number = newLetters.indexOf("");
 
     if (!gameOver) {
       if (userInput.match(/^[A-Za-z]$/)) {
-        onType(emptyIndex, newLetters, currentGuessIndex, userInput);
+        onType(emptyIndex, newLetters, userInput);
         setCurrentLetters(newLetters);
       } else if (userInput === "Backspace") {
-        onDelete(emptyIndex, newLetters, currentGuessIndex);
+        onDelete(emptyIndex, newLetters);
         setCurrentLetters(newLetters);
       } else if (userInput === "Enter") {
-        if (currentGuessIndex < currentLetters.length - 1) {
-          if (emptyIndex === -1) setCurrentGuessIndex(currentGuessIndex + 1);
-        } else setGameOver(true);
+        onEnter(emptyIndex, newLetters);
+        setCurrentLetters(newLetters);
       }
     }
   };
 
   const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     const letter = event.currentTarget.textContent;
-    if (letter) {
-      handleUserInput(letter);
-    }
+    if (letter) handleUserInput(letter);
   };
 
   useEffect(() => {
-    const handleKeyUp = (event: KeyboardEvent): void => {
+    const handleKeyUp = (event: KeyboardEvent): void =>
       handleUserInput(event.key);
-    };
 
     window.addEventListener("keyup", handleKeyUp);
 
     return () => {
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [currentLetters, currentGuessIndex, gameOver]);
+  }, [currentLetters, gameOver]);
 
   return (
     <main className="App">
       <h1 id="title">Wordle</h1>
       <section id="boardWrapper">
-        <GameInput letterBoxes={letterBoxes} currentLetters={currentLetters} />
+        <GameInput currentLetters={currentLetters} />
       </section>
       <section id="keyWrapper">
         <GameBoard onClick={handleOnClick} />
