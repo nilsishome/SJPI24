@@ -2,6 +2,10 @@
   "name": "wordle",
   "private": true,
   "version": "0.0.0",
+  "babel": { "presets": [["@babel/preset-env", 
+    {"targets": {"node": "current"}}],
+    "@babel/preset-typescript"]
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,6 +19,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.27.0",
     "@eslint/js": "^9.21.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

@@ -16,6 +16,9 @@ import feedback from "./algorithmA";
             2a. 'incorrect' (finns inte med i den andra text-strängen)
             2b. 'misplaced' (finns med i den andra text-stängen men är felplacerad)
             2c. 'correct' (korrekt placerad i den andra text-strängen)
+
+    Om en bokstav förekommer färre gånger i svaret, än i det gissade ordet; ska 
+    resultatet bli 'incorrect' istället för 'misplaced'.
 */
 
 describe("feedback()", () => {

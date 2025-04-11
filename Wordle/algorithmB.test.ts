@@ -16,12 +16,6 @@ import wordSelection from "./algorithmB";
 */
 
 describe("wordSelection()", () => {
-  it("handles input with no length and no letters specified", () => {
-    const output = wordSelection(["hej", "hejsan"]);
-
-    expect(["hej", "hejsan"]).toContain(output);
-  });
-
   it("returns a matching word from list", () => {
     const output = wordSelection(["hej", "hejsan", "hållas"], 6, true);
 

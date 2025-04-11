@@ -1,5 +1,9 @@
-export default function wordSelection(arr, wordLength, allowRepetition) {
-  const randomWord = (item) => {
+export default function wordSelection(
+  arr: string[],
+  wordLength: number,
+  allowRepetition: boolean
+) {
+  const randomWord = (item: string[]) => {
     return item[Math.floor(Math.random() * item.length)];
   };
 
@@ -7,7 +11,7 @@ export default function wordSelection(arr, wordLength, allowRepetition) {
     return randomWord(arr);
   }
 
-  const lengthArr = [];
+  const lengthArr: string[] = [];
   // If repetition with letters is allowed, pick words with specified length
   if (allowRepetition === true) {
     arr = arr.filter((word) => wordLength === word.length);
@@ -15,7 +19,7 @@ export default function wordSelection(arr, wordLength, allowRepetition) {
   }
   // If all letters in a word should be unique, pick words with specified length
   else {
-    arr.forEach((word) => {
+    arr.forEach((word: string) => {
       const letters = word.split("");
       if (wordLength === word.length) {
         if (new Set(letters).size === letters.length) {

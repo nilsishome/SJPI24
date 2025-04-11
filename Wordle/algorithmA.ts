@@ -1,11 +1,11 @@
-export default function feedback(guess, answer) {
-  const RESULT = ["correct", "misplaced", "incorrect"];
-  const array = [];
-  const guessChars = guess.split("");
-  const answerChars = answer.split("");
+export default function feedback(guess: string, answer: string) {
+  const RESULT: string[] = ["correct", "misplaced", "incorrect"];
+  const array: { letter: string; result: string }[] = [];
+  const guessChars: string[] = guess.split("");
+  const answerChars: string[] = answer.split("");
 
   for (let i = 0; i < guessChars.length; i++) {
-    let resultValue;
+    let resultValue: string;
 
     if (guessChars[i] === answerChars[i]) {
       resultValue = RESULT[0];
