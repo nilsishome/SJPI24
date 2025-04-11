@@ -9,6 +9,7 @@ export default function feedback(guess: string, answer: string) {
 
     if (guessChars[i] === answerChars[i]) {
       resultValue = RESULT[0];
+      answerChars.splice(i, 1, "");
     } else if (answerChars.includes(guessChars[i])) {
       resultValue = RESULT[1];
     } else {

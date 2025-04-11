@@ -83,4 +83,26 @@ describe("feedback()", () => {
       },
     ]);
   });
+
+  it("checks if a letter has more instances in guess than answer", () => {
+    const output = feedback("Rätt", "Räta");
+    expect(output).toEqual([
+      {
+        letter: "R",
+        result: "correct",
+      },
+      {
+        letter: "ä",
+        result: "correct",
+      },
+      {
+        letter: "t",
+        result: "correct",
+      },
+      {
+        letter: "t",
+        result: "incorrect",
+      },
+    ]);
+  });
 });
