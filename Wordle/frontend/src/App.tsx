@@ -63,12 +63,14 @@ const App: React.FC = (): JSX.Element => {
   return (
     <main className="App">
       <h1 id="title">Wordle</h1>
-      <section id="boardWrapper">
-        <GameInput currentLetters={currentLetters} />
-      </section>
-      <section id="keyWrapper">
-        <GameBoard onClick={handleOnClick} />
-      </section>
+      <div id="inputArea">
+        <section id="boardWrapper">
+          <GameInput currentLetters={currentLetters} />
+        </section>
+        <section id="keyWrapper">
+          <GameBoard onClick={handleOnClick} />
+        </section>
+      </div>
     </main>
   );
 };
