@@ -2,23 +2,24 @@ import { describe, it, expect } from "@jest/globals";
 import feedback from "./algorithmA";
 
 /*
-    Två olika inputs (text-strängar) ska jämföras med varandra.
-    Ena text-strängen ska vara en gissning, och den andra ska vara ett korrekt svar.
+    Two different inputs (strings of text) should be compared to each other.
+    The first input is a guess made by the user, and the second one should be
+    the correct answer.
 
-    Funktionaliteten ska berätta om:
-        a. text-strängarna är identiska
-        b. text-strängarna inte är identiska
+    The functionality will tell if:
+        a. the strings of text are identical
+        b. the strings of text are not identical
+
+    An array of objects will be printed - one for each letter - in the same order
+    as they are portrayed in the guessed word, with following attributes:
+        1. letter
+        2. result
+            2a. 'incorrect'
+            2b. 'misplaced'
+            2c. 'correct'
     
-    Det ska skrivas ut en array med objekt - ett för varje bokstav - i samma
-    ordning som de förekommer i det gissade ordet med följande attribut:
-        1. letter (bokstaven)
-        2. result (ett av följande värden)
-            2a. 'incorrect' (finns inte med i den andra text-strängen)
-            2b. 'misplaced' (finns med i den andra text-stängen men är felplacerad)
-            2c. 'correct' (korrekt placerad i den andra text-strängen)
-
-    Om en bokstav förekommer färre gånger i svaret, än i det gissade ordet; ska 
-    resultatet bli 'incorrect' istället för 'misplaced'.
+    The result should be 'incorrect' if a letter has fewer instances in the answer
+    than in the guess. Otherwise the result will be 'misplaced'.
 */
 
 describe("feedback()", () => {

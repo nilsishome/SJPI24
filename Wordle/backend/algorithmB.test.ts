@@ -2,17 +2,17 @@ import { describe, it, expect } from "@jest/globals";
 import wordSelection from "./algorithmB";
 
 /*
-    Spelet ska kunna välja ut vilket ord som man ska gissa på.
-    De parametrar som behövs är:
-     a. en lista med ord.
-     b. en siffra på önskad längd.
-     c. en indikation på huruvida alla bokstäver är unika, eller om de får upprepas
-     i ordet.
-    
-    Ordet ska slumpmässigt väljas ut, baserat på parametrarna ovan.
+    The game should be able to choose the word the user should guess.
+    The parameters needed is:
+     a. a list of words.
+     b. a number for wished length.
+     c. an indicator whether all letters are unique, or if they are allowed
+     repetition.
 
-    Situationen som inträffar om ett passande ord inte existerar, ska framgå tydligt,
-    och lämplig lösning ska därmed tillämpas.
+    The word should be selected randomly, based on the parameters described above.
+    
+    The situation that occurs if an appropriate word doesn't exist, should be clear,
+    and a fitting solution should apply.
 */
 
 describe("wordSelection()", () => {
