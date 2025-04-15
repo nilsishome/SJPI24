@@ -8,8 +8,4 @@ function onDelete(emptyIndex: number, newLetters: string[]) {
   else newLetters[emptyIndex - 1] = "";
 }
 
-function onEnter(emptyIndex: number, newLetters: string[]) {
-  if (emptyIndex === -1) newLetters.fill("");
-}
-
-export { onType, onDelete, onEnter };
+export { onType, onDelete };

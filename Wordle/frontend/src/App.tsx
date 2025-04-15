@@ -1,7 +1,8 @@
 import React, { JSX, useState, useEffect } from "react";
+import GuessesList from "../components/GuessesList";
 import GameBoard from "../components/GameBoard";
 import GameInput from "../components/GameInput";
-import { onType, onDelete, onEnter } from "../components/inputActions";
+import { onType, onDelete } from "../components/inputActions";
 
 /*
  *  The plan is to create a Wordle app; using React, TypeScript, server-side
@@ -25,6 +26,8 @@ const App: React.FC = (): JSX.Element => {
     Array(5).fill("")
   );
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [rows, setRows] = useState<number>(0);
+  const [guesses, setGuesses] = useState<string[][]>(Array(rows));
 
   const handleUserInput = (userInput: string): void => {
     const newLetters: string[] = [...currentLetters];
@@ -37,9 +40,13 @@ const App: React.FC = (): JSX.Element => {
       } else if (userInput === "Backspace") {
         onDelete(emptyIndex, newLetters);
         setCurrentLetters(newLetters);
-      } else if (userInput === "Enter") {
-        onEnter(emptyIndex, newLetters);
-        setCurrentLetters(newLetters);
+      } else if (userInput === "Enter" && emptyIndex === -1) {
+        const newGuess: string[][] = [...guesses];
+        newGuess[rows] = [...newLetters];
+        setGuesses(newGuess);
+        setRows((prev: number) => prev + 1);
+        newLetters.fill("");
+        setCurrentLetters(newLetters); // Resets the typing area
       }
     }
   };
@@ -50,19 +57,20 @@ const App: React.FC = (): JSX.Element => {
   };
 
   useEffect(() => {
-    const handleKeyUp = (event: KeyboardEvent): void =>
+    const handleKeyDown = (event: KeyboardEvent): void =>
       handleUserInput(event.key);
 
-    window.addEventListener("keyup", handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("keyup", handleKeyUp);
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentLetters, gameOver]);
+  }, [currentLetters, gameOver, rows, guesses]);
 
   return (
     <main className="App">
       <h1 id="title">Wordle</h1>
+      <GuessesList guesses={guesses} />
       <div id="inputArea">
         <section id="boardWrapper">
           <GameInput currentLetters={currentLetters} />
