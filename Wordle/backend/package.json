@@ -2,35 +2,25 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend part of the Wordle project",
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "@babel/preset-typescript"
-    ]
-  },
   "type": "module",
   "scripts": {
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --verbose",
     "build": "npx tsc",
-    "dev": "concurrently \"tsc -W\" \"nodemon server.js\""
+    "dev": "concurrently \"tsc --watch\" \"nodemon ./dist/server.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.14.1",
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
+    "ts-jest": "^29.3.2",
+    "ts-jest-resolver": "^2.0.1",
     "typescript": "^5.8.3"
   },
   "dependencies": {
