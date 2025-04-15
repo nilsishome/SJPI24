@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import wordSelection from "./algorithmB";
+import wordSelection from "./algorithmB.js";
 
 /*
     The game should be able to choose the word the user should guess.

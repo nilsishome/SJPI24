@@ -17,8 +17,8 @@ import { onType, onDelete } from "../components/inputActions";
  *
  *  Step 1: is to create the game itself!
  *    1a. Implement functionality and most of the GUI
- *    1b. Import the real word-library to our backend
- *    1c.
+ *    1b. Serve the game with a custom created server
+ *    1c. Import the real word-library to our backend
  */
 
 const App: React.FC = (): JSX.Element => {

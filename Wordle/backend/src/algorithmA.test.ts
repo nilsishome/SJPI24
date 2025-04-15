@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import feedback from "./algorithmA";
+import feedback from "./algorithmA.js";
 
 /*
     Two different inputs (strings of text) should be compared to each other.
