@@ -22,11 +22,14 @@ export default function wordSelection(
     arr.forEach((word: string) => {
       const letters = word.split("");
       if (wordLength === word.length) {
-        if (new Set(letters).size === letters.length) {
-          lengthArr.push(word); // Unique letters
-        } else {
+        try {
+          if (new Set(letters).size === letters.length) {
+            lengthArr.push(word); // Unique letters
+          } else {
+            lengthArr.push(word);
+          }
+        } catch {
           console.error("DID NOT FIND A WORD WITH UNIQUE LETTERS!");
-          lengthArr.push(word);
         }
       }
     });
@@ -35,10 +38,13 @@ export default function wordSelection(
       arr.forEach((word) => {
         const letters = word.split("");
         if (new Set(letters).size === letters.length) {
-          lengthArr.push(word); // Only unique letters
+          try {
+            lengthArr.push(word); // Only unique letters
+          } catch {
+            console.error("DID NOT FIND A WORD WITH THE CORRECT LENGTH!");
+          }
         }
       });
-      console.error("DID NOT FIND A WORD WITH THE CORRECT LENGTH!");
     }
     return randomWord(lengthArr);
   }
