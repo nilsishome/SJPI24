@@ -1,8 +1,8 @@
 import React, { JSX, useState, useEffect } from "react";
-import GuessesList from "../components/GuessesList";
-import GameBoard from "../components/GameBoard";
-import GameInput from "../components/GameInput";
-import { onType, onDelete } from "../components/inputActions";
+import GuessesList from "./components/GuessesList";
+import GameBoard from "./components/GameBoard";
+import GameInput from "./components/GameInput";
+import { onType, onDelete } from "./components/inputActions";
 
 /*
  *  The plan is to create a Wordle app; using React, TypeScript, server-side
@@ -17,8 +17,7 @@ import { onType, onDelete } from "../components/inputActions";
  *
  *  Step 1: is to create the game itself!
  *    1a. Implement functionality and most of the GUI
- *    1b. Serve the game with a custom created server
- *    1c. Import the real word-library to our backend
+ *    1b. Import the real word-library to our backend
  */
 
 const App: React.FC = (): JSX.Element => {
@@ -28,6 +27,17 @@ const App: React.FC = (): JSX.Element => {
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [rows, setRows] = useState<number>(0);
   const [guesses, setGuesses] = useState<string[][]>(Array(rows));
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/api/data");
+      const payload = await response.json();
+      const data = payload.data;
+      console.log(data);
+    };
+
+    fetchData();
+  }, []);
 
   const handleUserInput = (userInput: string): void => {
     const newLetters: string[] = [...currentLetters];
