@@ -1,5 +1,5 @@
 function onType(emptyIndex: number, newLetters: string[], userInput: string) {
-  if (emptyIndex !== -1) newLetters[emptyIndex] = userInput.toUpperCase();
+  if (emptyIndex !== -1) newLetters[emptyIndex] = userInput.toLowerCase();
   else newLetters[emptyIndex] = "";
 }
 
