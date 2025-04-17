@@ -1,11 +1,24 @@
-function onType(emptyIndex: number, newLetters: string[], userInput: string) {
-  if (emptyIndex !== -1) newLetters[emptyIndex] = userInput.toLowerCase();
-  else newLetters[emptyIndex] = "";
+async function makeGuess(gameId: string, guess: string) {
+  const response = await fetch(`/api/games/${gameId}/guesses`, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ guess: guess }),
+  });
+
+  if (!response.ok) {
+    console.error(
+      "Failed to post guess:",
+      response.status,
+      "\n",
+      response.statusText
+    );
+  }
+
+  const payload = response.json();
+
+  return payload;
 }
 
-function onDelete(emptyIndex: number, newLetters: string[]) {
-  if (emptyIndex === -1) newLetters[newLetters.length - 1] = "";
-  else newLetters[emptyIndex - 1] = "";
-}
-
-export { onType, onDelete };
+export { makeGuess };

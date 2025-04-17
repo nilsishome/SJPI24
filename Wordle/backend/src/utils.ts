@@ -1,6 +1,9 @@
 import wordSelection from "./logic/algorithmB.js";
 
-export const randomWord = async (length: number, allowRepetition: boolean) => {
+export const getRandomWord = async (
+  length: number,
+  allowRepetition: boolean
+) => {
   const URL = "../words.json";
   const response = await import(URL, { with: { type: "json" } });
 
