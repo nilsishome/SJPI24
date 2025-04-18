@@ -25,7 +25,7 @@
 #guessList {
   margin-top: 1.5rem;
   max-height: 20rem;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
 }
 
@@ -50,6 +50,18 @@
   border-radius: 6%;
   color: #fff;
   text-transform: uppercase;
+}
+
+.correct {
+  background-color: #00eb0c;
+}
+
+.incorrect {
+  background-color: #272727;
+}
+
+.misplaced {
+  background-color: #ffee00;
 }
 
 #inputArea {

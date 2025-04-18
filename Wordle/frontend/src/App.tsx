@@ -25,7 +25,7 @@ const App: React.FC = (): JSX.Element => {
   const [gameId, setGameId] = useState<string>("");
 
   useEffect(() => {
-    const startGame = async () => {
+    const startGame = async (): Promise<void> => {
       const response = await fetch("/api/games", {
         method: "post",
       });
