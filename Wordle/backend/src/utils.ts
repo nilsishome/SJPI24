@@ -14,8 +14,11 @@ export const getRandomWord = async (
     const data = JSON.parse(JSON.stringify(payload));
     const words = data.default.words;
 
-    const randomWord = wordSelection(words, length, allowRepetition);
-
-    return randomWord;
+    if (!words) {
+      console.error("ERROR");
+    } else {
+      const randomWord = wordSelection(words, length, allowRepetition);
+      return randomWord;
+    }
   }
 };
