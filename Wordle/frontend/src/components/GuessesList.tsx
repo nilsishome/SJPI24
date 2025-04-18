@@ -1,11 +1,21 @@
-import React, { JSX } from "react";
+import React, { JSX, useEffect, useRef } from "react";
 
 type Props = {
-  feedback: string[][];
+  stateColors: string[][];
   guesses: string[][];
 };
 
-const GuessesList: React.FC<Props> = ({ feedback, guesses }): JSX.Element => {
+const GuessesList: React.FC<Props> = ({
+  stateColors,
+  guesses,
+}): JSX.Element => {
+  const bottomOfGuessList = useRef<HTMLDivElement>(null);
+
+  // Automatic scrolling for previous guesses
+  useEffect(() => {
+    if (bottomOfGuessList.current) bottomOfGuessList.current.scrollIntoView();
+  }, [guesses]);
+
   return (
     <ul id="guessList">
       {guesses.map(
@@ -15,7 +25,7 @@ const GuessesList: React.FC<Props> = ({ feedback, guesses }): JSX.Element => {
               (guessLetter: string, letterIndex: number): JSX.Element => (
                 <div key={letterIndex}>
                   <input
-                    className={`allGuesses ${feedback[rowIndex][letterIndex]}`}
+                    className={`allGuesses ${stateColors[rowIndex][letterIndex]}`}
                     type="text"
                     value={guessLetter}
                     readOnly
@@ -26,6 +36,7 @@ const GuessesList: React.FC<Props> = ({ feedback, guesses }): JSX.Element => {
           </div>
         )
       )}
+      <div ref={bottomOfGuessList}></div>
     </ul>
   );
 };
