@@ -16,9 +16,26 @@ async function makeGuess(gameId: string, guess: string) {
     );
   }
 
-  const payload = response.json();
+  const payload = await response.json();
 
   return payload;
 }
 
-export { makeGuess };
+async function getEvaluation(gameId: string, index: number) {
+  const response = await fetch(`/api/games/${gameId}/evaluation`);
+
+  if (!response.ok) {
+    console.error(
+      "Failed to retrieve data:",
+      response.status,
+      "\n",
+      response.statusText
+    );
+  }
+
+  const payload = await response.json();
+
+  return payload.evaluation[index];
+}
+
+export { makeGuess, getEvaluation };

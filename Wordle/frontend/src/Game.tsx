@@ -3,7 +3,7 @@ import React, { JSX, useState, useEffect } from "react";
 import GuessesList from "./components/GuessesList";
 import GameBoard from "./components/GameBoard";
 import GameInput from "./components/GameInput";
-import { makeGuess } from "./components/inputActions";
+import { makeGuess, getEvaluation } from "./components/inputActions";
 
 type Props = {
   gameId: string;
@@ -16,6 +16,7 @@ const Game: React.FC<Props> = ({ gameId }): JSX.Element => {
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [rows, setRows] = useState<number>(0);
   const [guesses, setGuesses] = useState<string[][]>(Array(rows));
+  const [feedback, setFeedback] = useState<string[][]>([]);
 
   const handleUserInput = async (userInput: string): Promise<void> => {
     const newLetters: string[] = [...currentLetters];
@@ -34,7 +35,16 @@ const Game: React.FC<Props> = ({ gameId }): JSX.Element => {
         try {
           // Posts a guess to server
           const answer = await makeGuess(gameId, newWord);
-          if (answer.correct) setGameOver(true);
+
+          // Sends data from API to change background color in guesses
+          const evaluation = await getEvaluation(gameId, rows);
+          const stateColors: string[][] = feedback;
+          const results: string[] = [];
+          for (let i = 0; i < evaluation.length; i++) {
+            results.push(evaluation[i].result);
+          }
+          stateColors[rows] = [...results];
+          setFeedback(stateColors);
 
           // Updates the previous-guessed-word list
           const newGuess: string[][] = [...guesses];
@@ -45,6 +55,8 @@ const Game: React.FC<Props> = ({ gameId }): JSX.Element => {
           // Resets the 'text field'
           newLetters.fill("");
           setCurrentLetters(newLetters);
+
+          if (answer.correct) setGameOver(true); // Ends game
         } catch (error) {
           console.error("Error posting guess:", error);
         }
@@ -71,7 +83,7 @@ const Game: React.FC<Props> = ({ gameId }): JSX.Element => {
   return (
     <>
       <h1 id="title">Wordle</h1>
-      <GuessesList guesses={guesses} />
+      <GuessesList feedback={feedback} guesses={guesses} />
       <div id="inputArea">
         <section id="boardWrapper">
           <GameInput currentLetters={currentLetters} />
