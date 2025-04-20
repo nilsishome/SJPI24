@@ -1,4 +1,6 @@
 import React, { JSX, useEffect, useState } from "react";
+
+import Modal from "./components/Modal";
 import Game from "./Game";
 
 /*
@@ -22,6 +24,7 @@ import Game from "./Game";
  */
 
 const App: React.FC = (): JSX.Element => {
+  const [openModal, setOpenModal] = useState<boolean>(true);
   const [gameId, setGameId] = useState<string>("");
 
   useEffect(() => {
@@ -38,6 +41,7 @@ const App: React.FC = (): JSX.Element => {
 
   return (
     <main className="App">
+      {openModal && <Modal closeModal={setOpenModal} />}
       <Game gameId={gameId} />
     </main>
   );

@@ -11,7 +11,7 @@ type Props = {
 
 const Game: React.FC<Props> = ({ gameId }): JSX.Element => {
   const [currentLetters, setCurrentLetters] = useState<string[]>(
-    Array(5).fill("")
+    Array(4).fill("")
   );
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [rows, setRows] = useState<number>(0);
@@ -66,7 +66,9 @@ const Game: React.FC<Props> = ({ gameId }): JSX.Element => {
   };
 
   // Handle virtual keyboard (button) input
-  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleOnClick = async (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): Promise<void> => {
     const letter = event.currentTarget.textContent;
     if (letter) handleUserInput(letter);
   };
