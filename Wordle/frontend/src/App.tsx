@@ -1,4 +1,4 @@
-import React, { JSX, useEffect, useState } from "react";
+import React, { JSX, useState, useRef } from "react";
 
 import Modal from "./components/Modal";
 import Game from "./Game";
@@ -17,6 +17,7 @@ import Game from "./Game";
  *  Step 1: is to create the game itself!
  *    1a. Implement functionality and most of the GUI
  *    1b. Import the randomized answer from our backend
+ *    1c. Create a modal that customizes the game to server
  *
  *  Step 2: is to create the server-side rendered highscore page!
  *
@@ -26,23 +27,49 @@ import Game from "./Game";
 const App: React.FC = (): JSX.Element => {
   const [openModal, setOpenModal] = useState<boolean>(true);
   const [gameId, setGameId] = useState<string>("");
+  const [wordLength, setWordLength] = useState<number>(0);
 
-  useEffect(() => {
-    const startGame = async (): Promise<void> => {
-      const response = await fetch("/api/games", {
-        method: "post",
-      });
-      const payload = await response.json();
-      setGameId(payload.id);
-    };
+  const wordLengthRef = useRef<HTMLSelectElement | null>(null);
+  const allowRepetitionRef = useRef<HTMLSelectElement | null>(null);
 
-    startGame();
-  }, []);
+  const startGame = async (): Promise<void> => {
+    if (wordLengthRef.current && allowRepetitionRef.current) {
+      try {
+        const response = await fetch("/api/games", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            wordLength: parseInt(wordLengthRef.current.value),
+            allowRepetition: allowRepetitionRef.current.value === "true",
+          }), // This data allows the user to customize their Wordle type game
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const payload = await response.json();
+        setGameId(payload.id);
+        setWordLength(payload.wordLength);
+      } catch (error) {
+        console.error("Error starting the game:", error);
+      }
+    }
+  };
 
   return (
     <main className="App">
-      {openModal && <Modal closeModal={setOpenModal} />}
-      <Game gameId={gameId} />
+      {openModal && (
+        <Modal
+          wordLengthRef={wordLengthRef}
+          allowRepetitionRef={allowRepetitionRef}
+          startGame={startGame}
+          closeModal={setOpenModal}
+        />
+      )}
+      {wordLength > 0 && <Game gameId={gameId} wordLength={wordLength} />}
     </main>
   );
 };

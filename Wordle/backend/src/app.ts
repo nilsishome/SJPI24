@@ -10,6 +10,8 @@ app.use(express.json());
 
 const GAMES: {
   id: string;
+  wordLength: number;
+  allowRepetition: boolean;
   answer: string | undefined;
   guesses: string[];
   evaluation: object[];
@@ -18,9 +20,14 @@ const GAMES: {
 }[] = [];
 
 app.post("/api/games", async (req, res) => {
+  const wordLength: number = req.body.wordLength;
+  const allowRepetition: boolean = req.body.allowRepetition;
+
   const game = {
     id: uuid.v4(),
-    answer: await getRandomWord(5, true),
+    wordLength: wordLength,
+    allowRepetition: allowRepetition,
+    answer: await getRandomWord(wordLength, allowRepetition),
     guesses: [],
     evaluation: [],
     startTime: new Date(),
@@ -29,7 +36,7 @@ app.post("/api/games", async (req, res) => {
 
   GAMES.push(game);
 
-  res.status(201).json({ id: game.id });
+  res.status(201).json({ id: game.id, wordLength: game.wordLength });
 });
 
 app.post("/api/games/:id/guesses", (req, res) => {
