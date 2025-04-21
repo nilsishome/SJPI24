@@ -18,7 +18,7 @@ const Modal: React.FC<Props> = ({
     <div className="modalBlur">
       <div className="modalContainer">
         <div className="modalTitle">
-          <h1>Hello World!</h1>
+          <h1>A Wordle-ish Game</h1>
         </div>
 
         <form

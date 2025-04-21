@@ -16,6 +16,16 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
     Array(wordLength).fill("")
   );
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [result, setResult] = useState<{
+    id: string;
+    wordLength: number;
+    allowRepetition: boolean;
+    answer: string | undefined;
+    guesses: string[];
+    evaluation: object[];
+    startTime: Date;
+    endTime: Date;
+  }>();
   const [rows, setRows] = useState<number>(0);
   const [guesses, setGuesses] = useState<string[][]>([]);
   const [stateColors, setStateColors] = useState<string[][]>([]);
@@ -58,7 +68,10 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
         newLetters.fill("");
         setCurrentLetters(newLetters);
 
-        if (answer.correct) setGameOver(true); // Ends game
+        if (answer.correct) {
+          setResult(answer.result);
+          setGameOver(true); // Ends game
+        }
       }
     }
   };
@@ -81,9 +94,12 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentLetters, gameOver, rows, guesses]);
+  }, [currentLetters]);
 
-  if (gameOver) {
+  if (gameOver && result) {
+    const startTime = new Date(result.startTime);
+    const endTime = new Date(result.endTime);
+    const duration: number = (endTime.getTime() - startTime.getTime()) / 1000;
     return (
       <div className="modalBlur">
         <div className="modalContainer">
@@ -95,13 +111,13 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
               The correct answer was: {guesses.at(-1)?.join("").toUpperCase()}
             </p>
             <p>Number of guesses: {guesses.length}</p>
-            <p>Duration: 20s</p>
+            <p>Duration: {duration}s</p>
 
             <div className="modalFooter">
               <h2>Add to highscore</h2>
               <form onSubmit={(event) => event.preventDefault()}>
                 <input value="" placeholder="Enter your name..." />
-                <button>Submit Highscore</button>
+                <button id="submitBtn">Submit Highscore</button>
               </form>
             </div>
           </div>
