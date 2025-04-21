@@ -24,10 +24,10 @@ import feedback from "./algorithmA.js";
 
 describe("feedback()", () => {
   it("checks if guess and answer are equal", () => {
-    const output = feedback("Rätt", "Rätt");
+    const output = feedback("rätt", "rätt");
     expect(output).toEqual([
       {
-        letter: "R",
+        letter: "r",
         result: "correct",
       },
       {
@@ -46,10 +46,10 @@ describe("feedback()", () => {
   });
 
   it("checks if guess and answer are inequal", () => {
-    const output = feedback("Feel", "Rätt");
+    const output = feedback("feel", "rätt");
     expect(output).toEqual([
       {
-        letter: "F",
+        letter: "f",
         result: "incorrect",
       },
       {
@@ -86,10 +86,10 @@ describe("feedback()", () => {
   });
 
   it("checks if a letter has more instances in guess than answer", () => {
-    const output = feedback("Rätt", "Räta");
+    const output = feedback("rätt", "räta");
     expect(output).toEqual([
       {
-        letter: "R",
+        letter: "r",
         result: "correct",
       },
       {

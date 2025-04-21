@@ -4,7 +4,7 @@ export default function wordSelection(
   allowRepetition: boolean
 ) {
   const randomWord = (item: string[]) => {
-    return item[Math.floor(Math.random() * item.length)];
+    return item[Math.floor(Math.random() * item.length)].toLowerCase();
   };
 
   if (!wordLength && !allowRepetition) {

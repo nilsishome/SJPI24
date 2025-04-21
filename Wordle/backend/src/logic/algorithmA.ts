@@ -1,8 +1,8 @@
 export default function feedback(guess: string, answer: string) {
   const RESULT: string[] = ["correct", "misplaced", "incorrect"];
   const array: { letter: string; result: string }[] = [];
-  const guessChars: string[] = guess.split("");
-  const answerChars: string[] = answer.split("");
+  const guessChars: string[] = guess.toLowerCase().split("");
+  const answerChars: string[] = answer.toLowerCase().split("");
 
   // Checks if a letter is correct or incorrect
   for (let i = 0; i < guessChars.length; i++) {
