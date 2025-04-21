@@ -4,6 +4,7 @@ import GuessesList from "./components/GuessesList";
 import GameBoard from "./components/GameBoard";
 import GameInput from "./components/GameInput";
 import { makeGuess, getEvaluation } from "./components/inputActions";
+import "./components/Modal.css";
 
 type Props = {
   gameId: string;
@@ -81,6 +82,33 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentLetters, gameOver, rows, guesses]);
+
+  if (gameOver) {
+    return (
+      <div className="modalBlur">
+        <div className="modalContainer">
+          <div className="modalTitle">
+            <h1>Winner!</h1>
+          </div>
+          <div className="modalBody">
+            <p>
+              The correct answer was: {guesses.at(-1)?.join("").toUpperCase()}
+            </p>
+            <p>Number of guesses: {guesses.length}</p>
+            <p>Duration: 20s</p>
+
+            <div className="modalFooter">
+              <h2>Add to highscore</h2>
+              <form onSubmit={(event) => event.preventDefault()}>
+                <input value="" placeholder="Enter your name..." />
+                <button>Submit Highscore</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

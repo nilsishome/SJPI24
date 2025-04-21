@@ -17,6 +17,10 @@ const Modal: React.FC<Props> = ({
   return (
     <div className="modalBlur">
       <div className="modalContainer">
+        <div className="modalTitle">
+          <h1>Hello World!</h1>
+        </div>
+
         <form
           onSubmit={(event: React.FormEvent<Element>) => {
             event.preventDefault();
@@ -24,10 +28,6 @@ const Modal: React.FC<Props> = ({
             closeModal(false);
           }}
         >
-          <div className="modalTitle">
-            <h1>Hello World!</h1>
-          </div>
-
           <div className="modalBody">
             <p>Select Word Length</p>
             <select id="wordLength" ref={wordLengthRef} required>
