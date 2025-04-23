@@ -1,8 +1,10 @@
 import express from "express";
 import * as uuid from "uuid";
+import mongoose from "mongoose";
 
 import { getRandomWord } from "./utils.js";
 import feedback from "./logic/algorithmA.js";
+import { Highscore } from "./Highscore.js";
 
 const app = express();
 
@@ -14,7 +16,7 @@ const GAMES: {
   allowRepetition: boolean;
   answer: string | undefined;
   guesses: string[];
-  evaluation: object[];
+  evaluation: { letter: string; result: string }[][];
   startTime: Date;
   endTime: Date | undefined;
 }[] = [];
@@ -78,6 +80,27 @@ app.get("/api/games/:id/evaluation", (req, res) => {
     res.status(200).json({
       evaluation: game.evaluation,
     });
+  } else {
+    res.status(404).end();
+  }
+});
+
+app.post("/api/games/:id/highscores", async (req, res) => {
+  await mongoose.connect("mongodb://localhost:27017/highscores");
+  const game = GAMES.find((session) => session.id === req.params.id);
+
+  if (game && game.endTime) {
+    const newHighscore = new Highscore({
+      name: req.body.name,
+      time: (game.endTime.getTime() - game.startTime.getTime()) / 1000,
+      guesses: game.guesses,
+      wordLength: game.wordLength,
+      allowRepetition: game.allowRepetition,
+    });
+
+    await newHighscore.save();
+
+    res.status(201).json({ data: newHighscore });
   } else {
     res.status(404).end();
   }

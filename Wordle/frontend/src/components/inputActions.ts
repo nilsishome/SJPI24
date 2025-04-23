@@ -46,4 +46,18 @@ async function getEvaluation(gameId: string, index: number) {
   }
 }
 
-export { makeGuess, getEvaluation };
+async function handleSubmit(gameId: string, name: string) {
+  const highscore = {
+    name,
+  };
+
+  await fetch(`/api/games/${gameId}/highscores`, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(highscore),
+  });
+}
+
+export { makeGuess, getEvaluation, handleSubmit };

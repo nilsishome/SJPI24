@@ -18,6 +18,8 @@ import Game from "./Game";
  *    1a. Implement functionality and most of the GUI
  *    1b. Import the randomized answer from our backend
  *    1c. Create a modal that customizes the game to server
+ *    1d. Create a endscreen that lets the user send name and score to database
+ *    1e. Send highscore to database
  *
  *  Step 2: is to create the server-side rendered highscore page!
  *

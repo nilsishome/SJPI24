@@ -1,9 +1,13 @@
-import React, { JSX, useState, useEffect } from "react";
+import React, { JSX, useState, useEffect, FormEventHandler } from "react";
 
 import GuessesList from "./components/GuessesList";
 import GameBoard from "./components/GameBoard";
 import GameInput from "./components/GameInput";
-import { makeGuess, getEvaluation } from "./components/inputActions";
+import {
+  makeGuess,
+  getEvaluation,
+  handleSubmit,
+} from "./components/inputActions";
 import "./components/Modal.css";
 
 type Props = {
@@ -16,19 +20,21 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
     Array(wordLength).fill("")
   );
   const [gameOver, setGameOver] = useState<boolean>(false);
+
+  const [rows, setRows] = useState<number>(0);
+  const [guesses, setGuesses] = useState<string[][]>([]);
+  const [stateColors, setStateColors] = useState<string[][]>([]);
   const [result, setResult] = useState<{
     id: string;
     wordLength: number;
     allowRepetition: boolean;
     answer: string | undefined;
     guesses: string[];
-    evaluation: object[];
+    evaluation: { letter: string; result: string }[][];
     startTime: Date;
     endTime: Date;
   }>();
-  const [rows, setRows] = useState<number>(0);
-  const [guesses, setGuesses] = useState<string[][]>([]);
-  const [stateColors, setStateColors] = useState<string[][]>([]);
+  const [name, setName] = useState<string>("");
 
   // Input handling + game logic
   const handleUserInput = async (userInput: string): Promise<void> => {
@@ -115,8 +121,19 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
 
             <div className="modalFooter">
               <h2>Add to highscore</h2>
-              <form onSubmit={(event) => event.preventDefault()}>
-                <input value="" placeholder="Enter your name..." />
+              <form
+                onSubmit={(event: React.FormEvent<HTMLFormElement>): void => {
+                  event.preventDefault();
+                  handleSubmit(gameId, name);
+                }}
+              >
+                <input
+                  value={name}
+                  onChange={(
+                    event: React.ChangeEvent<HTMLInputElement>
+                  ): void => setName(event.target.value)}
+                  placeholder="Enter your name..."
+                />
                 <button id="submitBtn">Submit Highscore</button>
               </form>
             </div>

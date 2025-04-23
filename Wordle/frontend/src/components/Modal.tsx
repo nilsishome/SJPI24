@@ -22,7 +22,7 @@ const Modal: React.FC<Props> = ({
         </div>
 
         <form
-          onSubmit={(event: React.FormEvent<Element>) => {
+          onSubmit={(event: React.FormEvent<Element>): void => {
             event.preventDefault();
             startGame();
             closeModal(false);
