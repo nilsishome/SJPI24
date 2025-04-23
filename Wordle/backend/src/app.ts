@@ -1,4 +1,5 @@
 import express from "express";
+import fs from "fs/promises";
 import * as uuid from "uuid";
 import mongoose from "mongoose";
 
@@ -9,6 +10,7 @@ import { Highscore } from "./Highscore.js";
 const app = express();
 
 app.use(express.json());
+app.use("/assets", express.static("../frontend/dist/assets"));
 
 const GAMES: {
   id: string;
@@ -20,6 +22,12 @@ const GAMES: {
   startTime: Date;
   endTime: Date | undefined;
 }[] = [];
+
+app.get("/", async (req, res) => {
+  const htmlBuf = await fs.readFile("../frontend/dist/index.html");
+  const htmlFile = htmlBuf.toString();
+  res.status(200).send(htmlFile);
+});
 
 app.post("/api/games", async (req, res) => {
   const wordLength: number = req.body.wordLength;

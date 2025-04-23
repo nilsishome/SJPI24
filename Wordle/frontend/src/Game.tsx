@@ -20,7 +20,7 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
     Array(wordLength).fill("")
   );
   const [gameOver, setGameOver] = useState<boolean>(false);
-
+  const [highscoreSubmit, setHighscoreSubmit] = useState<boolean>(false);
   const [rows, setRows] = useState<number>(0);
   const [guesses, setGuesses] = useState<string[][]>([]);
   const [stateColors, setStateColors] = useState<string[][]>([]);
@@ -102,7 +102,7 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
     };
   }, [currentLetters]);
 
-  if (gameOver && result) {
+  if (!highscoreSubmit && gameOver && result) {
     const startTime = new Date(result.startTime);
     const endTime = new Date(result.endTime);
     const duration: number = (endTime.getTime() - startTime.getTime()) / 1000;
@@ -125,6 +125,7 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
                 onSubmit={(event: React.FormEvent<HTMLFormElement>): void => {
                   event.preventDefault();
                   handleSubmit(gameId, name);
+                  setHighscoreSubmit(true);
                 }}
               >
                 <input
@@ -137,6 +138,19 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
                 <button id="submitBtn">Submit Highscore</button>
               </form>
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (highscoreSubmit) {
+    return (
+      <div className="modalBlur">
+        <div className="modalContainer">
+          <div className="modalTitle">
+            <h1 id="submittedTitle">Highscore Submitted!</h1>
+          </div>
+          <div className="modalFooter">
+            <button onClick={() => window.location.reload()}>Play Again</button>
           </div>
         </div>
       </div>

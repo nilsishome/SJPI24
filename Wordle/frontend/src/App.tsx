@@ -20,10 +20,11 @@ import Game from "./Game";
  *    1c. Create a modal that customizes the game to server
  *    1d. Create a endscreen that lets the user send name and score to database
  *    1e. Send highscore to database
+ *    1f. Serve the entire game from the same server
  *
  *  Step 2: is to create the server-side rendered highscore page!
  *
- *  Step 3: is to create the static about page!
+ *  Step 3: is to create the static, about page!
  */
 
 const App: React.FC = (): JSX.Element => {
