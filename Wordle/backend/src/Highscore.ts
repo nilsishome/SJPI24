@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const highscoreSchema = new mongoose.Schema({
   name: String,
   time: Number,
-  guesses: Number,
+  guesses: [String],
   wordLength: Number,
   uniqueLetters: String,
 });

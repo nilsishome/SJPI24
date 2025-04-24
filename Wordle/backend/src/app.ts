@@ -9,8 +9,12 @@ import { Highscore } from "./Highscore.js";
 
 const app = express();
 
+app.set("view engine", "ejs");
+app.set("views", "./src/views");
+
 app.use(express.json());
 app.use("/assets", express.static("../frontend/dist/assets"));
+app.use("/assets", express.static("../frontend/public/assets"));
 
 const GAMES: {
   id: string;
@@ -27,6 +31,14 @@ app.get("/", async (req, res) => {
   const htmlBuf = await fs.readFile("../frontend/dist/index.html");
   const htmlFile = htmlBuf.toString();
   res.status(200).send(htmlFile);
+});
+
+app.get("/highscores", async (req, res) => {
+  await mongoose.connect("mongodb://localhost:27017/highscores");
+
+  const userData = await Highscore.find().sort({ time: 1 });
+  const user = JSON.parse(JSON.stringify(userData));
+  res.render("highscores", { user });
 });
 
 app.post("/api/games", async (req, res) => {
@@ -98,17 +110,23 @@ app.post("/api/games/:id/highscores", async (req, res) => {
   const game = GAMES.find((session) => session.id === req.params.id);
 
   if (game && game.endTime) {
+    let uniqueLetters: string;
+    if (game.allowRepetition) uniqueLetters = "No";
+    else uniqueLetters = "Yes";
+
     const newHighscore = new Highscore({
       name: req.body.name,
       time: (game.endTime.getTime() - game.startTime.getTime()) / 1000,
       guesses: game.guesses,
       wordLength: game.wordLength,
-      allowRepetition: game.allowRepetition,
+      uniqueLetters: uniqueLetters,
     });
 
     await newHighscore.save();
 
     res.status(201).json({ data: newHighscore });
+
+    GAMES.splice(GAMES.indexOf(game), 1); // Remove game from server array
   } else {
     res.status(404).end();
   }
