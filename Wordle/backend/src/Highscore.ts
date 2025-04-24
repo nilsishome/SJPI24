@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 const highscoreSchema = new mongoose.Schema({
   name: String,
   time: Number,
-  guesses: [String],
+  guesses: Number,
   wordLength: Number,
-  allowRepetition: Boolean,
+  uniqueLetters: String,
 });
 
 export const Highscore = mongoose.model("Highscore", highscoreSchema);
