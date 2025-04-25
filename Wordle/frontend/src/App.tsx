@@ -1,5 +1,6 @@
 import React, { JSX, useState, useRef } from "react";
 
+import Navbar from "./components/Navbar";
 import Modal from "./components/Modal";
 import Game from "./Game";
 
@@ -14,17 +15,19 @@ import Game from "./Game";
  *  All functionality will be implemented with the help from TypeScript.
  *  The high-score page will be server-side rendered, either by Pug or EJS.
  *
- *  Step 1: is to create the game itself!
- *    1a. Implement functionality and most of the GUI
- *    1b. Import the randomized answer from our backend
- *    1c. Create a modal that customizes the game to server
- *    1d. Create a endscreen that lets the user send name and score to database
- *    1e. Send highscore to database
- *    1f. Serve the entire game from the same server
+ *  Step 1: is to create the game itself! [x]
+ *    1a. Implement functionality and most of the GUI [x]
+ *    1b. Import the randomized answer from our backend [x]
+ *    1c. Create a modal that customizes the game to server [x]
+ *    1d. Create a endscreen that lets the user send name and score to database [x]
+ *    1e. Send highscore to database [x]
+ *    1f. Serve the entire game from the same server [x]
  *
- *  Step 2: is to create the server-side rendered highscore page!
+ *  Step 2: is to create the server-side rendered highscore page! [x]
  *
- *  Step 3: is to create the static, about page!
+ *  Step 3: is to create the static, about page! [x]
+ *
+ *  Step 4: is to implement navigation for the three different routes [x]
  */
 
 const App: React.FC = (): JSX.Element => {
@@ -64,6 +67,7 @@ const App: React.FC = (): JSX.Element => {
 
   return (
     <main className="App">
+      <Navbar />
       {openModal && (
         <Modal
           wordLengthRef={wordLengthRef}

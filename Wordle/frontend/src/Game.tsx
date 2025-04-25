@@ -150,6 +150,9 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
             <h1 id="submittedTitle">Highscore Submitted!</h1>
           </div>
           <div className="modalFooter">
+            <button onClick={() => (window.location.href = "/highscores")}>
+              View Highscores
+            </button>
             <button onClick={() => window.location.reload()}>Play Again</button>
           </div>
         </div>

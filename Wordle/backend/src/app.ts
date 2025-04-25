@@ -14,7 +14,6 @@ app.set("views", "./src/views");
 
 app.use(express.json());
 app.use("/assets", express.static("../frontend/dist/assets"));
-app.use("/assets", express.static("../frontend/public/assets"));
 
 const GAMES: {
   id: string;
@@ -39,6 +38,12 @@ app.get("/highscores", async (req, res) => {
   const userData = await Highscore.find().sort({ time: 1 });
   const user = JSON.parse(JSON.stringify(userData));
   res.render("highscores", { user });
+});
+
+app.get("/about", async (req, res) => {
+  const htmlBuf = await fs.readFile("../frontend/dist/about.html");
+  const htmlFile = htmlBuf.toString();
+  res.status(200).send(htmlFile);
 });
 
 app.post("/api/games", async (req, res) => {
