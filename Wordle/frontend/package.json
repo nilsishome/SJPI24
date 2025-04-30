@@ -8,6 +8,7 @@
     "postinstall": "npm run build",
     "dev": "vite",
     "build": "vite build",
+    "build:watch": "vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview"
   },
