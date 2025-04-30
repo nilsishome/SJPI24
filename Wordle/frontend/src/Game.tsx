@@ -134,6 +134,7 @@ const Game: React.FC<Props> = ({ gameId, wordLength }): JSX.Element => {
                     event: React.ChangeEvent<HTMLInputElement>
                   ): void => setName(event.target.value)}
                   placeholder="Enter your name..."
+                  required
                 />
                 <button id="submitBtn">Submit Highscore</button>
               </form>
